@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val navController = findNavController(R.id.nav_host_fragment)
-        setupWithNavController(bottom_navigation, navController)
-
+        setupWithNavController(nav_view, navController)
     }
 }

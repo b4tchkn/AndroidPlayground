@@ -3,7 +3,7 @@
     <item
         android:id="@+id/navi_smile"
         android:icon="@drawable/ic_insert_emoticon_black_24dp"
-        android:title="スマイル"/>
+        android:title="すまいる"/>
     <item
         android:id="@+id/navi_pets"
         android:icon="@drawable/ic_pets_black_24dp"

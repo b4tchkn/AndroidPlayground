@@ -1,21 +1,27 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
     app:startDestination="@id/navi_smile">
 
     <fragment android:id="@+id/navi_smile"
         android:name="com.example.myandroidtemp.Fragmant1"
+        tools:layout="@layout/fragment_1"
         android:label="Fragment1"/>
 
-    <fragment android:id="@+id/navi_pets"
+    <fragment
+        android:id="@+id/navi_pets"
         android:name="com.example.myandroidtemp.Fragment2"
-        android:label="Fragment2"/>
+        tools:layout="@layout/fragment_2"
+        android:label="Fragment2" />
 
     <fragment android:id="@+id/navi_sun"
         android:name="com.example.myandroidtemp.Fragment3"
+        tools:layout="@layout/fragment_3"
         android:label="Fragment3"/>
 
     <fragment android:id="@+id/navi_flight"
         android:name="com.example.myandroidtemp.Fragment4"
+        tools:layout="@layout/fragment_4"
         android:label="Fragment4"/>
 </navigation>
