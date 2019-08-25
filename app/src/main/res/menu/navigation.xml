@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navi_smile"
+        android:icon="@drawable/ic_insert_emoticon_black_24dp"
+        android:title="スマイル"/>
+    <item
+        android:id="@+id/navi_pets"
+        android:icon="@drawable/ic_pets_black_24dp"
+        android:title="ペット"/>
+    <item
+        android:id="@+id/navi_sun"
+        android:icon="@drawable/ic_wb_sunny_black_24dp"
+        android:title="太陽"/>
+    <item
+        android:id="@+id/navi_flight"
+        android:icon="@drawable/ic_airplanemode_active_black_24dp"
+        android:title="飛行機"/>
+</menu>
