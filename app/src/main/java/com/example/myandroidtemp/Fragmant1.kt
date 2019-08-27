@@ -12,10 +12,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class Fragmant1: Fragment() {
-    val uRL = "http://weather.livedoor.com/forecast/webservice/json/v1?city=400040"
-    var result = ""
+    private val uRL = "http://weather.livedoor.com/forecast/webservice/json/v1?city=400040"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,11 +31,16 @@ class Fragmant1: Fragment() {
     }
 
     fun parallelGet() = GlobalScope.launch(Dispatchers.Main) {
-        val http = HttpUtil()
-        async(Dispatchers.Default) { http.httpGET1(uRL) }.await().let {
-            val result = Json.parse(it).asObject()
-            val textView = view?.findViewById<TextView>(R.id.sarimaruText)
-            textView?.setText(result.get("description").asObject().get("text").asString())
+        val textView = view?.findViewById<TextView>(R.id.sarimaruText)
+        try {
+            val http = HttpUtil()
+            async(Dispatchers.Default) { http.httpGET1(uRL) }.await().let {
+                val result = Json.parse(it).asObject()
+                textView?.setText(result.get("description").asObject().get("text").asString())
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            textView?.setText("だめだった")
         }
     }
 }

@@ -8,6 +8,7 @@ class HttpUtil {
         val client = OkHttpClient()
         val request = Request.Builder()
             .url(url)
+            .get()
             .build()
 
         val response = client.newCall(request).execute()
