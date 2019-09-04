@@ -14,7 +14,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class Fragmant1: Fragment() {
+class Fragmant1 : Fragment() {
     private val uRL = "http://weather.livedoor.com/forecast/webservice/json/v1?city=400040"
 
     override fun onCreateView(
@@ -35,12 +35,15 @@ class Fragmant1: Fragment() {
         try {
             val http = HttpUtil()
             async(Dispatchers.Default) { http.httpGET1(uRL) }.await().let {
-                val result = Json.parse(it).asObject()
-                textView?.setText(result.get("description").asObject().get("text").asString())
+                if (it != null) {
+                    val result = Json.parse(it).asObject()
+                    textView?.setText(result.get("description").asObject().get("text").asString())
+                } else {
+                    print(it)
+                }
             }
-        } catch (e: IOException) {
-            e.printStackTrace()
-            textView?.setText("だめだった")
+        } catch (t: Throwable) {
+
         }
     }
 }
