@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:background="#4CAF50">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:text="Fragment2"
-        android:textColor="#FFFFFF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
