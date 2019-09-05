@@ -6,9 +6,12 @@ import android.os.RecoverySystem
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.list_item.*
 import java.util.*
 
@@ -28,7 +31,14 @@ class Fragment2: Fragment() {
         repeat((0..100).count()) { itemList.add(Item("テスト", date)) }
 
         view.findViewById<RecyclerView>(R.id.itemRecyclerView).also { recyclerView: RecyclerView ->
-            recyclerView.adapter = ItemViewAdapter(context!!, itemList)
+            val alphaAdapter = AlphaInAnimationAdapter(ItemViewAdapter(view.context, itemList))
+            //recyclerView.adapter = ItemViewAdapter(context!!, itemList)
+            recyclerView.adapter = ScaleInAnimationAdapter(alphaAdapter).apply {
+                setDuration(500)
+                setHasStableIds(false)
+                setFirstOnly(false)
+                setInterpolator(OvershootInterpolator(.100f))
+            }
             recyclerView.layoutManager = LinearLayoutManager(context)
         }
     }
