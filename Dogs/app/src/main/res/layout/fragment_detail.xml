@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.DetailFragment">
+
+        <ImageView
+            android:id="@+id/dogImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="fitCenter"
+            android:minHeight="200dp">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/dogName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogImage"
+            android:text="Don Name"
+            style="@style/Title"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/dogPurpose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogName"
+            android:text="Don purpose"
+            style="@style/Text"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/dogTemperament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogPurpose"
+            android:text="Don temperament"
+            style="@style/Text"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/dogLifespan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogTemperament"
+            android:text="Don lifespan"
+            style="@style/Text"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp">
+        </TextView>
+    </RelativeLayout>
+</layout>
