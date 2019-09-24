@@ -14,12 +14,12 @@ abstract class DogDatabse: RoomDatabase() {
         private val LOCK = Any()
 
         operator  fun invoke(context: Context) = instance ?: synchronized(LOCK) {
-            instance ?: buidDatabase(context).also {
+            instance ?: buildDatabase(context).also {
                 instance = it
             }
         }
         // test comment
-        private fun buidDatabase(context: Context) = Room.databaseBuilder(
+        private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             DogDatabse::class.java,
             "dogdatabase"
