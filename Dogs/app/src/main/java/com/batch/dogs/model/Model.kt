@@ -28,7 +28,7 @@ data class DogBreed (
     val bredFor: String?,
 
     @SerializedName("temperament")
-    val temperament: String,
+    val temperament: String?,
 
     @ColumnInfo(name = "dog_url")
     @SerializedName("url")
