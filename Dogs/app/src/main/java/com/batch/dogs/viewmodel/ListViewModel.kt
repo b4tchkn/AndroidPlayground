@@ -35,6 +35,10 @@ class ListViewModel(application: Application): BaseViewModel(application) {
         }
     }
 
+    fun refreshBypassCache() {
+        fetchFromRemote()
+    }
+
     private fun fetchFromDatabase() {
         loading.value =true
         launch {
