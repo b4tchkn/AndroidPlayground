@@ -17,6 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:imageUrl="@{dog.imageUrl}"
             android:padding="4dp">
         </ImageView>
 
