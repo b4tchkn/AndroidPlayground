@@ -2,15 +2,28 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="dog"
             type="com.batch.dogs.model.DogBreed" />
+
+        <variable
+            name="listener"
+            type="com.batch.dogs.view.DogClickListener" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:onClick="@{listener::onDogClicked}">
+
+        <TextView
+            android:id="@+id/dogId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(dog.uuid)}"></TextView>
 
         <ImageView
             android:id="@+id/imageView"
@@ -18,8 +31,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:imageUrl="@{dog.imageUrl}"
-            android:padding="4dp">
-        </ImageView>
+            android:padding="4dp"></ImageView>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -34,16 +46,14 @@
                 style="@style/Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{dog.dogBreed}">
-            </TextView>
+                android:text="@{dog.dogBreed}"></TextView>
 
             <TextView
                 android:id="@+id/lifespan"
                 style="@style/Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{dog.lifeSpan}">
-            </TextView>
+                android:text="@{dog.lifeSpan}"></TextView>
         </LinearLayout>
     </LinearLayout>
 </layout>
