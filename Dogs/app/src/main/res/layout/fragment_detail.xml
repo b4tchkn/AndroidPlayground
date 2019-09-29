@@ -8,11 +8,15 @@
         <variable
             name="dog"
             type="com.batch.dogs.model.DogBreed" />
+        <variable
+            name="palette"
+            type="com.batch.dogs.model.DogPalette" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@{palette.color}"
         tools:context=".view.DetailFragment">
 
         <ImageView

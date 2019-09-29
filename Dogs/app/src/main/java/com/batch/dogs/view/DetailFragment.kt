@@ -1,6 +1,8 @@
 package com.batch.dogs.view
 
 
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +14,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
+import androidx.palette.graphics.Palette
 
 import com.batch.dogs.R
 import com.batch.dogs.databinding.FragmentDetailBinding
+import com.batch.dogs.model.DogPalette
 import com.batch.dogs.util.getProgressDrawable
 import com.batch.dogs.util.loadImage
 import com.batch.dogs.viewmodel.DetailViewModel
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_list.*
 
@@ -53,7 +60,30 @@ class DetailFragment : Fragment() {
         viewModel.dogLiveData.observe(this, Observer { dog ->
             dog?.let {
                 dataBinding.dog = dog
+
+                it.imageUrl?.let {
+                    setupBackgroundColor(it)
+                }
             }
         })
+    }
+
+    private fun setupBackgroundColor(url: String) {
+        Glide.with(this)
+            .asBitmap()
+            .load(url)
+            .into(object: CustomTarget<Bitmap>() {
+                override fun onLoadCleared(placeholder: Drawable?) {
+                }
+
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    Palette.from(resource)
+                        .generate{palette ->
+                            val intColor = palette?.lightMutedSwatch?.rgb ?: 0
+                            val myPalette = DogPalette(intColor)
+                            dataBinding.palette = myPalette
+                        }
+                }
+            })
     }
 }
