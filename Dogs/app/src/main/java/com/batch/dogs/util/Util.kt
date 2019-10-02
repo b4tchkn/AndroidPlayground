@@ -8,6 +8,8 @@ import com.batch.dogs.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
+val PERMISSION_SEND_SMS = 234
+
 fun getProgressDrawable(context: Context): CircularProgressDrawable {
     return CircularProgressDrawable(context).apply {
         strokeWidth = 10f
