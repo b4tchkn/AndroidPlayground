@@ -1,6 +1,7 @@
 package com.batch.dogs.view
 
 
+import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -16,7 +17,10 @@ import androidx.palette.graphics.Palette
 
 import com.batch.dogs.R
 import com.batch.dogs.databinding.FragmentDetailBinding
+import com.batch.dogs.databinding.SendSmsDialogBinding
+import com.batch.dogs.model.DogBreed
 import com.batch.dogs.model.DogPalette
+import com.batch.dogs.model.SmsInfo
 import com.batch.dogs.util.getProgressDrawable
 import com.batch.dogs.util.loadImage
 import com.batch.dogs.viewmodel.DetailViewModel
@@ -35,6 +39,7 @@ class DetailFragment : Fragment() {
     private var dogUuid = 0
     private lateinit var dataBinding: FragmentDetailBinding
     private var sendSmsStarted = false
+    private var currentDog: DogBreed? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,6 +63,7 @@ class DetailFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.dogLiveData.observe(this, Observer { dog ->
+            currentDog = dog
             dog?.let {
                 dataBinding.dog = dog
 
@@ -72,13 +78,13 @@ class DetailFragment : Fragment() {
         Glide.with(this)
             .asBitmap()
             .load(url)
-            .into(object: CustomTarget<Bitmap>() {
+            .into(object : CustomTarget<Bitmap>() {
                 override fun onLoadCleared(placeholder: Drawable?) {
                 }
 
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     Palette.from(resource)
-                        .generate{palette ->
+                        .generate { palette ->
                             val intColor = palette?.lightMutedSwatch?.rgb ?: 0
                             val myPalette = DogPalette(intColor)
                             dataBinding.palette = myPalette
@@ -93,7 +99,7 @@ class DetailFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.action_send_sms -> {
                 sendSmsStarted = true
                 (activity as MainActivity).checkSmsPermission()
@@ -106,6 +112,39 @@ class DetailFragment : Fragment() {
     }
 
     fun onPermissionResult(permissionGranted: Boolean) {
+        if (sendSmsStarted && permissionGranted) {
+            context?.let {
+                val smsInfo = SmsInfo(
+                    "",
+                    "${currentDog?.dogBreed} bred for ${currentDog?.bredFor}",
+                    currentDog?.imageUrl
+                )
+
+                val dialogBinding = DataBindingUtil.inflate<SendSmsDialogBinding>(
+                    LayoutInflater.from(it),
+                    R.layout.send_sms_dialog,
+                    null,
+                    false
+                )
+
+                AlertDialog.Builder(it)
+                    .setView(dialogBinding.root)
+                    .setPositiveButton("Send SMS") {dialog, which ->
+                        if (!dialogBinding.smsDestination.text.isNullOrEmpty()) {
+                            smsInfo.to = dialogBinding.smsDestination.text.toString()
+                            sendSms(smsInfo)
+                        }
+                    }
+                    .setNegativeButton("Cancel") {dialog, which ->  }
+                    .show()
+
+                dialogBinding.smsInfo = smsInfo
+            }
+
+        }
+    }
+
+    private fun sendSms(smsInfo: SmsInfo) {
 
     }
 }
