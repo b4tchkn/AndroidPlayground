@@ -2,9 +2,12 @@ package com.batch.dogs.view
 
 
 import android.app.AlertDialog
+import android.app.PendingIntent
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.telephony.SmsManager
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -145,6 +148,9 @@ class DetailFragment : Fragment() {
     }
 
     private fun sendSms(smsInfo: SmsInfo) {
-
+        val intent = Intent(context, MainActivity::class.java)
+        val pi = PendingIntent.getActivity(context, 0, intent, 0)
+        val sms = SmsManager.getDefault()
+        sms.sendTextMessage(smsInfo.to, null, smsInfo.text, pi,null)
     }
 }
