@@ -1,5 +1,6 @@
 package com.batch.batchmlkit
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun textRecognition(view: View) {
+        startActivity(Intent(this@MainActivity, TextRecognitionActivity::class.java))
     }
 
     fun faceDetection(view: View) {
