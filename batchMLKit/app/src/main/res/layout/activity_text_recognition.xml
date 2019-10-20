@@ -6,8 +6,7 @@
     android:orientation="horizontal"
     tools:context=".TextRecognitionActivity">
 
-    <include layout="@layout/image_text_recognition"></include>
-
     <include layout="@layout/text_recognition_bottom_sheet"></include>
 
+    <include layout="@layout/image_text_recognition"></include>
 </androidx.constraintlayout.widget.ConstraintLayout>

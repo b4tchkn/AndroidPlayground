@@ -17,11 +17,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun faceDetection(view: View) {
+        startActivity(Intent(this@MainActivity, FaceDetectionActivity::class.java))
     }
 
     fun barcodeScanner(view: View) {
+        startActivity(Intent(this@MainActivity, BarcodeScannerActivity::class.java))
     }
 
     fun imageLabeling(view: View) {
+        startActivity(Intent(this@MainActivity, ImageLabelingActivity::class.java))
     }
 }
