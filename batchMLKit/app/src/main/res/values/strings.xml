@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">batchMLKit</string>
+    <string name="image_text_recognition_desc">image text recognition description</string>
+    <string name="camera_description">camera_take_image</string>
+    <string name="gallery_description">gallery image</string>
+    <string name="text_recognition_string">Text Recognition</string>
 </resources>
