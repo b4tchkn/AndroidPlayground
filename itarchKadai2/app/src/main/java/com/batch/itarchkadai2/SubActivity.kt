@@ -10,7 +10,6 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_sub.*
 
 class SubActivity : AppCompatActivity() {
-    private lateinit var receiver: MyReceiver
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub)
@@ -23,6 +22,11 @@ class SubActivity : AppCompatActivity() {
                 Intent("android.intent.action.VIEW", Uri.parse(urlEditText.text.toString()))
             startActivity(intent)
         }
+    }
+
+    // kadai2-4
+    override fun onStart() {
+        super.onStart()
         val receiver = MyReceiver()
         val intentFilter = IntentFilter()
         intentFilter.addAction("android.intent.action.BATTERY_CHANGED")
