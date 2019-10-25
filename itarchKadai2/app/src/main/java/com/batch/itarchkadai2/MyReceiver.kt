@@ -8,6 +8,7 @@ import android.widget.Toast
 // kadai2-4
 class MyReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        Toast.makeText(context, "battery", Toast.LENGTH_LONG).show()
+        // バッテリーの値が変更したとき，Toastを表示
+        Toast.makeText(context, "battery changed", Toast.LENGTH_SHORT).show()
     }
 }

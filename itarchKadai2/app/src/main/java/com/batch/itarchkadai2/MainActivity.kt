@@ -14,12 +14,15 @@ class MainActivity : AppCompatActivity() {
 
         activityButton.setOnClickListener {
             // kadai 2-3
+            // "batch://subactivity-intent"という独自インテントに対して暗黙的インテントでstartActivityする
             val uri = Uri.parse("batch://subactivity-intent")
             val intent = Intent("android.intent.action.VIEW", uri)
-            intent.putExtra("gotoSubActivity", "AAAAAAAA")
+            // intentにputExtraでメッセージを含める
+            intent.putExtra("gotoSubActivity", "send SubActivity")
             startActivity(intent)
 
             // kadai2-1
+            // 明示的インテントでSubActivityに遷移
 //            val intent = Intent(this, SubActivity::class.java)
 //            startActivity(intent)
         }
