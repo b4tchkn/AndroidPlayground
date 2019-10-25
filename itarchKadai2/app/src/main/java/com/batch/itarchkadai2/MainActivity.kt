@@ -14,9 +14,8 @@ class MainActivity : AppCompatActivity() {
 
         activityButton.setOnClickListener {
             // kadai 2-3
-            // "batch://subactivity-intent"という独自インテントに対して暗黙的インテントでstartActivityする
-            val uri = Uri.parse("batch://subactivity-intent")
-            val intent = Intent("android.intent.action.VIEW", uri)
+            // "com.batch.ACTION"という独自インテントに対して暗黙的インテントでstartActivityする
+            val intent = Intent("com.batch.ACTION")
             // intentにputExtraでメッセージを含める
             intent.putExtra("gotoSubActivity", "send SubActivity")
             startActivity(intent)

@@ -16,17 +16,17 @@
         </receiver>
         <activity android:name=".SubActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"></action>
-                <action android:name="an"></action>
+                <action android:name="com.batch.ACTION"></action>
                 <category android:name="android.intent.category.BROWSABLE"></category>
                 <category android:name="android.intent.category.DEFAULT"></category>
-                <data android:scheme="batch" android:host="subactivity-intent"></data>
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.BROWSABLE"></category>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
         </activity>
     </application>
