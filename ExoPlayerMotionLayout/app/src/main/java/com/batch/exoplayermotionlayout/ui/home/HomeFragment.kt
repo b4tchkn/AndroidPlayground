@@ -4,15 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.batch.exoplayermotionlayout.R
 import com.batch.exoplayermotionlayout.model.Music
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.OnItemClickListener
@@ -67,6 +71,17 @@ class HomeFragment : Fragment() {
     }
 
     private val onItemClickListener = OnItemClickListener {item, view ->
-        Timber.d("click$item")
+        val index = this.musicListAdapter.getAdapterPosition(item)
+        val coverImage = view.findViewById<ImageView>(R.id.coverImageView)
+        val coverPath = homeViewModel.musics.value!![index].coverPath
+        Glide.with(this)
+            .load(coverPath)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(coverImage)
+        val action = HomeFragmentDirections.actionPlayMusicFragment()
+        action.musicTitle = homeViewModel.musics.value!![index].name
+        action.description = homeViewModel.musics.value!![index].description
+        action.coverPath = coverPath
+        Navigation.findNavController(activity!!, R.id.nav_host_fragment).navigate(action)
     }
 }
