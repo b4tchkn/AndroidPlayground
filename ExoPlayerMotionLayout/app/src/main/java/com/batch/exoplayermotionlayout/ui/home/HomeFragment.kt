@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.batch.exoplayermotionlayout.R
 import com.batch.exoplayermotionlayout.model.Music
 import com.xwray.groupie.GroupAdapter
@@ -27,18 +29,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeViewModel.fetch()
+        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        homeViewModel.fetchRemote()
+        Timber.d("koko")
         observeViewModel()
         val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        musicRecyclerView.addItemDecoration(itemDecoration)
+        musicListRecyclerView.addItemDecoration(itemDecoration)
     }
 
     private fun observeViewModel() {
@@ -51,6 +52,11 @@ class HomeFragment : Fragment() {
         musicListAdapter.apply {
             update(musicListItem)
             setOnItemClickListener(onItemClickListener)
+        }
+        musicListRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = musicListAdapter
         }
     }
 

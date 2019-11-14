@@ -10,12 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="8dp">
         <!--        android:onClick="@{listener::onPlaylistClicked}">-->
         <ImageView
             android:id="@+id/cover_image_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:imageUrl="@{music.coverPath}"
             android:src="@drawable/ic_music">
         </ImageView>
         <LinearLayout
@@ -27,14 +28,16 @@
                 android:id="@+id/musicNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Music Name"
-                android:textSize="20sp">
+                android:text="@{music.name}"
+                tools:text="Music Name"
+                android:textSize="15sp">
             </TextView>
             <TextView
                 android:id="@+id/descriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Description"
+                android:text="@{music.description}"
+                tools:text="description"
                 android:textSize="15sp">
             </TextView>
         </LinearLayout>
