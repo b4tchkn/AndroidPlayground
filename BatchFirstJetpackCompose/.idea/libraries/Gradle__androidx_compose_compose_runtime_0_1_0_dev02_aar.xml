@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.compose:compose-runtime:0.1.0-dev02@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e38f621f498ed9beec18c5296c46b77f/jetified-compose-runtime-0.1.0-dev02/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e38f621f498ed9beec18c5296c46b77f/jetified-compose-runtime-0.1.0-dev02/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.compose/compose-runtime/0.1.0-dev02/5b43fd2f80f750b43654b56f0474adad1bb7fdc0/compose-runtime-0.1.0-dev02-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
