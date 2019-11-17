@@ -15,7 +15,7 @@
             android:src="@drawable/no_cover_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/musicTitleTextView"
@@ -41,7 +41,7 @@
             android:src="@drawable/ic_play_arrow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+            app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
 
         <ImageButton
             android:id="@+id/nextButton"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toTopOf="@+id/playButton" />
 
         <SeekBar
-            android:id="@+id/seekBar"
+            android:id="@+id/seek_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -74,26 +74,26 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/artistNameTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/artist_name_text_view" />
 
         <TextView
-            android:id="@+id/startTimeTextView"
+            android:id="@+id/start_time_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0:00"
-            app:layout_constraintStart_toStartOf="@+id/seekBar"
-            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+            app:layout_constraintStart_toStartOf="@+id/seek_bar"
+            app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
 
         <TextView
-            android:id="@+id/endTimeTextView"
+            android:id="@+id/end_time_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0:00"
-            app:layout_constraintEnd_toEndOf="@+id/seekBar"
-            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+            app:layout_constraintEnd_toEndOf="@+id/seek_bar"
+            app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
 
         <TextView
-            android:id="@+id/artistNameTextView"
+            android:id="@+id/artist_name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
