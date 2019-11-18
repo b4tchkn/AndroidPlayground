@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.Text
 import androidx.ui.core.setContent
+import androidx.ui.layout.Column
 import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
 
@@ -13,21 +14,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                Greeting("Android")
+                Greeting()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting() {
+    Column {
+        Text(text = "Hello World")
+        Text(text = "hogehogehoge")
+        Text(text = "hagehagehage")
+    }
 }
 
 @Preview
 @Composable
-fun DefaultPreview() {
+fun PreviewGreeting() {
     MaterialTheme {
-        Greeting("Android")
+        Greeting()
     }
 }
