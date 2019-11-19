@@ -5,6 +5,13 @@
         motion:constraintSetStart="@layout/fragment_motion_start"
         motion:constraintSetEnd="@layout/fragment_motion_end"
         motion:duration="1000">
+        <KeyFrameSet>
+            <KeyPosition
+                motion:keyPositionType="pathRelative"
+                motion:percentY="0.25"
+                motion:framePosition="50"
+                motion:motionTarget="@id/fragment_motion_text"/>
+        </KeyFrameSet>
         <OnSwipe
             motion:touchAnchorId="@id/fragment_motion_text"
             motion:dragDirection="dragUp"/>
