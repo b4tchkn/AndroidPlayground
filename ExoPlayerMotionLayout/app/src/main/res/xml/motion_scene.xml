@@ -6,7 +6,7 @@
         motion:constraintSetEnd="@layout/fragment_motion_end"
         motion:duration="1000">
         <OnSwipe
-            motion:touchAnchorId="@+id/fragment_motion_text"
+            motion:touchAnchorId="@id/fragment_motion_text"
             motion:dragDirection="dragUp"/>
     </Transition>
 </MotionScene>
