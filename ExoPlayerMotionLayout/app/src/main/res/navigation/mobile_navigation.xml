@@ -19,7 +19,11 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.batch.exoplayermotionlayout.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/actionMotionFragment"
+            app:destination="@id/motionFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -44,4 +48,9 @@
             android:defaultValue="defaultCoverPath"
             app:argType="string"></argument>
     </fragment>
+    <fragment
+        android:id="@+id/motionFragment"
+        android:name="com.batch.exoplayermotionlayout.ui.motion.MotionFragment"
+        android:label="fragment_motion"
+        tools:layout="@layout/fragment_motion" />
 </navigation>

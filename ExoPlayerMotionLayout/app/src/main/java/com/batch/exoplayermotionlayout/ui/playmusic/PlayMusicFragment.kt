@@ -31,8 +31,8 @@ class PlayMusicFragment : Fragment() {
         val coverPath = args.coverPath
         val musicTitle = args.musicTitle
         val description = args.description
-        val musicTitleTextView = view.findViewById<TextView>(R.id.musicTitleTextView)
-        val artistNameTextView = view.findViewById<TextView>(R.id.artistNameTextView)
+        val musicTitleTextView = view.findViewById<TextView>(R.id.music_title_text_view)
+        val artistNameTextView = view.findViewById<TextView>(R.id.artist_name_text_view)
         musicTitleTextView.text = musicTitle
         artistNameTextView.text = description
         Glide.with(this)
