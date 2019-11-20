@@ -26,7 +26,7 @@ class PlayMusicFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val coverImage = view.findViewById<ImageView>(R.id.coverImageView)
+        val coverImage = view.findViewById<ImageView>(R.id.cover_image_view)
         val args: PlayMusicFragmentArgs by navArgs()
         val coverPath = args.coverPath
         val musicTitle = args.musicTitle
