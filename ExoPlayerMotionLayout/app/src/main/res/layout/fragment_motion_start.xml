@@ -3,14 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/fragment_motion_text"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
-        android:layout_width="wrap_content"
-        android:text="Hello"
-        android:textSize="20sp"
+    <View
+        android:id="@+id/view_motion"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#EEEEEE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"/>
 </androidx.constraintlayout.motion.widget.MotionLayout>

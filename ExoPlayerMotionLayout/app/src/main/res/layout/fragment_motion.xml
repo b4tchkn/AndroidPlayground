@@ -5,17 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.motion.MotionFragment"
-    app:layoutDescription="@xml/motion_scene">
-
-    <TextView
-        android:id="@+id/fragment_motion_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="600dp"/>
-
+    app:layoutDescription="@xml/sub_motion_scene">
+    <View
+        android:id="@+id/view_motion"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 </androidx.constraintlayout.motion.widget.MotionLayout>
