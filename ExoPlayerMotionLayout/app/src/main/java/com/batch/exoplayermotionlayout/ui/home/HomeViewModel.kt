@@ -22,7 +22,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         scope.launch {
             try {
                 musics.value = api.getMusics()
-                Timber.d(musics.value.toString())
             } catch (e: Exception) {
                 Timber.d(e.toString())
                 e.stackTrace

@@ -20,6 +20,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.OnItemClickListener
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import timber.log.Timber
 
@@ -42,6 +43,7 @@ class HomeFragment : Fragment() {
         homeViewModel.fetchRemote()
         Timber.d("koko")
         observeViewModel()
+        requireActivity().tool_bar.visibility = View.VISIBLE
         val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         musicListRecyclerView.addItemDecoration(itemDecoration)
     }

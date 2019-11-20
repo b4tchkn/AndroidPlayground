@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.System.load
 
 class PlayMusicFragment : Fragment() {
@@ -20,6 +21,7 @@ class PlayMusicFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().tool_bar.visibility = View.GONE
         (activity as AppCompatActivity).supportActionBar?.hide()
         return inflater.inflate(R.layout.fragment_play_music, container, false)
     }
