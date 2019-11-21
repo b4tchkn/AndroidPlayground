@@ -5,11 +5,10 @@
     android:layout_height="match_parent">
     <View
         android:id="@+id/view_motion"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:background="#EEEEEE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.motion.widget.MotionLayout>

@@ -19,6 +19,6 @@
         </KeyFrameSet>
         <OnSwipe
             motion:touchAnchorId="@id/view_motion"
-            motion:dragDirection="dragUp"/>
+            motion:dragDirection="dragDown"/>
     </Transition>
 </MotionScene>
