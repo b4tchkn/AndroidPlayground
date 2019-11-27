@@ -19,13 +19,11 @@ class MainActivity : AppCompatActivity() {
     private val connection: ServiceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName, service: IBinder) {
             myservice = IMyAidlInterface.Stub.asInterface(service)
-            Log.d("tagtag", "Service Connected")
             Toast.makeText(applicationContext, "Service Connected", Toast.LENGTH_SHORT).show()
         }
 
         override fun onServiceDisconnected(name: ComponentName) {
             myservice = null
-            Log.d("tagtag", "Service Disconnected")
             Toast.makeText(applicationContext, "Service Disconnected", Toast.LENGTH_SHORT).show()
         }
     }
