@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_groupie"
-        android:name="com.batch.recyclerviewsample.ui.dashboard.GroupieFragment"
+        android:name="com.batch.recyclerviewsample.ui.groupie.GroupieFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_groupie" />
 

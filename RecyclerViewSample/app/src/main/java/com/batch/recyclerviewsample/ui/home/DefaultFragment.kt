@@ -22,10 +22,10 @@ class DefaultFragment : Fragment() {
         defaultViewModel =
             ViewModelProviders.of(this).get(DefaultViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_default, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        defaultViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+////        val textView: TextView = root.findViewById(R.id.text_home)
+//        defaultViewModel.text.observe(this, Observer {
+//            textView.text = it
+//        })
         return root
     }
 }

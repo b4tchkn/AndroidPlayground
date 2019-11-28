@@ -22,10 +22,10 @@ class EpoxyFragment : Fragment() {
         epoxyViewModel =
             ViewModelProviders.of(this).get(EpoxyViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_epoxy, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        epoxyViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+//        val textView: TextView = root.findViewById(R.id.text_notifications)
+//        epoxyViewModel.text.observe(this, Observer {
+//            textView.text = it
+//        })
         return root
     }
 }

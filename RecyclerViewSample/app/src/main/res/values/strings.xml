@@ -3,4 +3,5 @@
     <string name="title_home">Default</string>
     <string name="title_dashboard">Groupie</string>
     <string name="title_notifications">Epoxy</string>
+    <string name="BASE_URL">http://private-e41e4-clasickmock.apiary-mock.com/</string>
 </resources>
