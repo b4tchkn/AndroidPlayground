@@ -5,14 +5,18 @@
         <variable
             name="music"
             type="com.batch.recyclerviewsample.model.Music" />
+
+        <variable
+            name="itemClickListener"
+            type="android.view.View.OnClickListener" />
     </data>
     <LinearLayout
         android:id="@+id/music_item"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
-        android:padding="16dp">
-        <!--        android:onClick="@{listener::onPlaylistClicked}">-->
+        android:padding="16dp"
+        android:onClick="@{itemClickListener}">
         <ImageView
             android:id="@+id/cover_image_view"
             android:layout_width="wrap_content"

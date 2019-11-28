@@ -1,4 +1,4 @@
-package com.batch.recyclerviewsample.ui.notifications
+package com.batch.recyclerviewsample.ui.epoxy
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
