@@ -1,4 +1,4 @@
-package com.batch.recyclerviewsample.ui.dashboard
+package com.batch.recyclerviewsample.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.batch.recyclerviewsample.R
 
-class DashboardFragment : Fragment() {
+class EpoxyFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var epoxyViewModel: EpoxyViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(this, Observer {
+        epoxyViewModel =
+            ViewModelProviders.of(this).get(EpoxyViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_epoxy, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        epoxyViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

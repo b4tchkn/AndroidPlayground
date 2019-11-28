@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_default">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.batch.recyclerviewsample.ui.home.HomeFragment"
+        android:id="@+id/navigation_default"
+        android:name="com.batch.recyclerviewsample.ui.home.DefaultFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_default" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.batch.recyclerviewsample.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_groupie"
+        android:name="com.batch.recyclerviewsample.ui.dashboard.GroupieFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_groupie" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.batch.recyclerviewsample.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_epoxy"
+        android:name="com.batch.recyclerviewsample.ui.notifications.EpoxyFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_epoxy" />
 </navigation>

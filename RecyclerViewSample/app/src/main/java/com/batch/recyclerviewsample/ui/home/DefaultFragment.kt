@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.batch.recyclerviewsample.R
 
-class HomeFragment : Fragment() {
+class DefaultFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var defaultViewModel: DefaultViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        defaultViewModel =
+            ViewModelProviders.of(this).get(DefaultViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_default, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
+        defaultViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
