@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -27,6 +29,13 @@ android {
     }
 }
 
+def coroutineVersion = '1.3.0'
+def retrofitVersion = '2.6.0'
+def moshiVersion = '1.8.0'
+def groupieVersion = '2.7.0'
+def glideVersion = '4.10.0'
+def epoxyVersion = '3.8.0'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -42,4 +51,33 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+
+    // retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
+    // moshi
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    // timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // groupie
+    implementation "com.xwray:groupie:$groupieVersion"
+    implementation "com.xwray:groupie-kotlin-android-extensions:$groupieVersion"
+    implementation "com.xwray:groupie-databinding:$groupieVersion"
+
+    // epoxy
+    implementation "com.airbnb.android:epoxy:$epoxyVersion"
+    kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"
+    implementation "com.airbnb.android:epoxy-databinding:$epoxyVersion"
 }
