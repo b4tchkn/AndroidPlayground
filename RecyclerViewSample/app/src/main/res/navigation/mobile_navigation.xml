@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_default">
+
+    <fragment
+        android:id="@+id/navigation_default"
+        android:name="com.batch.recyclerviewsample.ui.default.DefaultFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_default" />
+
+    <fragment
+        android:id="@+id/navigation_groupie"
+        android:name="com.batch.recyclerviewsample.ui.groupie.GroupieFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_groupie" />
+
+    <fragment
+        android:id="@+id/navigation_epoxy"
+        android:name="com.batch.recyclerviewsample.ui.epoxy.EpoxyFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_epoxy" />
+</navigation>
