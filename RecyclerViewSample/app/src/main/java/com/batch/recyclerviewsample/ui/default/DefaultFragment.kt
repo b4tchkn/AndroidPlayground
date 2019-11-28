@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TimePicker
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.batch.recyclerviewsample.R
+import com.batch.recyclerviewsample.model.Music
 import com.batch.recyclerviewsample.ui.groupie.GroupieViewModel
 import kotlinx.android.synthetic.main.fragment_default.*
+import timber.log.Timber
 
 class DefaultFragment : Fragment() {
 
@@ -34,6 +38,11 @@ class DefaultFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = defaultAdapter
         }
+        defaultAdapter.setOnItemClickListener(object : DefaultAdapter.OnItemClickListener {
+            override fun itemClick(view: View, data: Music) {
+                Toast.makeText(context, data.toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
         observeViewModel()
     }
 

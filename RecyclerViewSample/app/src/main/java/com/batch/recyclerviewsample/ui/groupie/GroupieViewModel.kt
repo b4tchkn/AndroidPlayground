@@ -20,10 +20,8 @@ class GroupieViewModel(application: Application) : AndroidViewModel(application)
         viewModelScope.launch {
             try {
                 musics.value = api.getMusics()
-                Timber.d(musics.value.toString())
             } catch (e: Exception) {
                 e.stackTrace
-                Timber.d(e.toString())
             }
         }
     }
