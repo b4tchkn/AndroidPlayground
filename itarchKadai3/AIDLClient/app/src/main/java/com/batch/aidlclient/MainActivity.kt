@@ -34,8 +34,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        calc_button.setOnClickListener { 
-            calc()
+        otenki_button.setOnClickListener {
+            getOtenki()
+            getCalc()
         }
     }
 
@@ -45,7 +46,6 @@ class MainActivity : AppCompatActivity() {
             val it = Intent("myservice")
             it.setPackage("com.batch.aidlserver")
             bindService(it, connection, Context.BIND_AUTO_CREATE)
-            Log.d("taguuu", "onStart end")
         }
     }
 
@@ -54,12 +54,24 @@ class MainActivity : AppCompatActivity() {
         unbindService(connection)
     }
 
-    private fun calc() {
-        val num1 = val1_edit_text.text.toString()
-        val num2 = val2__edit_text.text.toString()
+    private fun getOtenki() {
         try {
-            val result = myService?.getResult(num1.toInt(), num2.toInt())
-            result_text.text = result.toString()
+            val result = myService?.getOtenki()
+            if (result != null) Toast.makeText(applicationContext, "データを取得しました", Toast.LENGTH_SHORT).show()
+            else Toast.makeText(applicationContext, "データの取得に失敗しました", Toast.LENGTH_SHORT).show()
+            text_view.text = result
+        } catch (e: RemoteException) {
+            e.printStackTrace()
+            Log.d("taguuu", e.toString())
+        }
+    }
+
+    private fun getCalc() {
+        val num1 = 3
+        val num2 = 4
+        try {
+            val result = myService?.getCalc(num1, num2)
+            Log.d("taguuu", result.toString())
         } catch (e: RemoteException) {
             e.printStackTrace()
             Log.d("taguuu", e.toString())
