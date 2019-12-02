@@ -10,44 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d203a340-5a76-4c11-b33a-1d81054eceff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AIDLClient/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/androidTest/java/com/batch/aidlclient/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/java/com/batch/aidlclient/MainActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/test/java/com/batch/aidlclient/ExampleUnitTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLClient/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/aidl/com/batch/aidlclient/IMyService.aidl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIDLClient/app/src/main/java/com/batch/aidlclient/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/java/com/batch/aidlclient/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIDLClient/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -84,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/batch/itarchkadai3/MyAidlService.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
@@ -96,11 +62,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/batch/itarchkadai3/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            <state relative-caret-position="298">
+              <caret line="35" selection-start-line="35" selection-end-line="42" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="20" selection-end-line="45" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -129,9 +105,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="96" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="720" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -294,6 +269,17 @@
               <item name="aidl" type="edd41e36:AndroidSourceTypeNode" />
               <item name="itarchkadai3" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
+            <path>
+              <item name="itarchKadai3" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="itarchKadai3" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -432,15 +418,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/batch/itarchkadai3/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/aidl/com/batch/itarchkadai3/IMyAidlInterface.aidl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -455,6 +433,21 @@
           <folding>
             <element signature="e#32#114#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="20" selection-end-line="45" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/batch/itarchkadai3/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="35" selection-start-line="35" selection-end-line="42" selection-end-column="13" />
         </state>
       </provider>
     </entry>

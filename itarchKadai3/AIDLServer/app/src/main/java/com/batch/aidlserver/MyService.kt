@@ -3,6 +3,7 @@ package com.batch.aidlserver
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
+import com.batch.IMyService
 
 class MyService : Service() {
     override fun onBind(intent: Intent?): IBinder? {
