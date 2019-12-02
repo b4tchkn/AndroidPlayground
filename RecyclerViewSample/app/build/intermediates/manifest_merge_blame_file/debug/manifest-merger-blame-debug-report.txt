@@ -1,0 +1,72 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.batch.recyclerviewsample"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:6:5-79
+12-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:6:22-76
+13
+14    <application
+14-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:8:5-26:19
+15        android:name="com.batch.recyclerviewsample.App"
+15-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:9:9-28
+16        android:allowBackup="true"
+16-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:10:9-35
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/61a4322994bff311c55a1e748aab7916/core-1.1.0/AndroidManifest.xml:24:18-86
+18        android:debuggable="true"
+19        android:icon="@mipmap/ic_launcher"
+19-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:11:9-43
+20        android:label="@string/app_name"
+20-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:12:9-41
+21        android:networkSecurityConfig="@xml/network_security_config"
+21-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:15:9-69
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:13:9-54
+23        android:supportsRtl="true"
+23-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:14:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:16:9-40
+26        <activity
+26-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:17:9-25:20
+27            android:name="com.batch.recyclerviewsample.MainActivity"
+27-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:18:13-41
+28            android:label="@string/app_name" >
+28-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:19:13-45
+29            <intent-filter>
+29-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:20:13-24:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:21:17-69
+30-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:21:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:23:17-77
+32-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:23:27-74
+33            </intent-filter>
+34        </activity>
+35
+36        <provider
+36-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/7077a31a382867bc615ebdab4c4e3b76/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+37            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+37-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/7077a31a382867bc615ebdab4c4e3b76/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+38            android:authorities="com.batch.recyclerviewsample.lifecycle-process"
+38-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/7077a31a382867bc615ebdab4c4e3b76/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+39            android:exported="false"
+39-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/7077a31a382867bc615ebdab4c4e3b76/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+40            android:multiprocess="true" />
+40-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/7077a31a382867bc615ebdab4c4e3b76/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+41    </application>
+42
+43</manifest>

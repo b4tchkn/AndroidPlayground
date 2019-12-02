@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                   
+    
+                 
+                        
+                                                              
+
+                 
+                                    
+                                                       
+           
+    <LinearLayout
+        android:id="@+id/music_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:tag="layout/item_0"             xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+        <ImageView
+            android:id="@+id/cover_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:tag="binding_1"              
+            android:src="@drawable/ic_music_note">
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/music_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:tag="binding_2"     
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Music Name" />
+
+            <TextView
+                android:id="@+id/description_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="binding_3"            
+                android:textSize="13sp"
+                tools:text="description" />
+        </LinearLayout>
+    </LinearLayout>
+         

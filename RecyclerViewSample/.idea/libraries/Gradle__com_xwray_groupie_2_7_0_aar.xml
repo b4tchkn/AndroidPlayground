@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.xwray:groupie:2.7.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3817c86f23efed3a1f70c422e481559c/groupie-2.7.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3817c86f23efed3a1f70c422e481559c/groupie-2.7.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xwray/groupie/2.7.0/123a4608b4446345a7ec5499fc79b21b667d707c/groupie-2.7.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xwray/groupie/2.7.0/c2a36116084ee6981acfd3e5ad51c20d9dd44074/groupie-2.7.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
