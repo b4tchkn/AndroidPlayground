@@ -10,10 +10,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d203a340-5a76-4c11-b33a-1d81054eceff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AIDLServer/app/src/main/aidl/com/batch/aidlserver/IMyService.aidl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIDLServer/app/src/main/java/com/batch/aidlserver/MyService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIDLServer/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AIDLServer/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/androidTest/java/com/batch/aidlclient/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/java/com/batch/aidlclient/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/app/src/test/java/com/batch/aidlclient/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIDLClient/settings.gradle" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -363,7 +397,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.26609442" />
