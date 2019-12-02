@@ -12,13 +12,15 @@ class MyService : Service() {
     }
 
     private val binder: IMyService.Stub = object : IMyService.Stub() {
-        override fun getOtenki(): String {
-            var result = "デフォルトメッセージ"
+        override fun getOtenki(): ArrayList<String> {
+            var result = arrayListOf<String>()
             val api = MyServiceRepository("http://weather.livedoor.com/forecast/webservice/json/")
             CoroutineScope(Dispatchers.Default).launch {
                 try {
                     val otenki = api.getOtenki("017010")
-                    result = otenki.description.text
+                    result.add(otenki.title)
+                    result.add(otenki.description.text)
+//                    result = otenki.description.text
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

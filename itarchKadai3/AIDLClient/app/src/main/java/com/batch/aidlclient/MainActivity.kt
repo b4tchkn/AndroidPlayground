@@ -59,7 +59,8 @@ class MainActivity : AppCompatActivity() {
             val result = myService?.getOtenki()
             if (result != null) Toast.makeText(applicationContext, "データを取得しました", Toast.LENGTH_SHORT).show()
             else Toast.makeText(applicationContext, "データの取得に失敗しました", Toast.LENGTH_SHORT).show()
-            text_view.text = result
+            otenki_title.text = result?.get(0)
+            otenki_description.text = result?.get(1)
         } catch (e: RemoteException) {
             e.printStackTrace()
             Log.d("taguuu", e.toString())
