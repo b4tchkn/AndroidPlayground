@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.motion.MotionFragment"
+    app:layoutDescription="@xml/sub_motion_scene"
+    android:background="#000000"
+    android:id="@+id/background_motion">
+    <View
+        android:id="@+id/view_motion"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

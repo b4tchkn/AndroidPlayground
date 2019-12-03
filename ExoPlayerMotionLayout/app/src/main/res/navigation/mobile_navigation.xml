@@ -9,17 +9,48 @@
         android:id="@+id/navigation_home"
         android:name="com.batch.exoplayermotionlayout.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionPlayMusicFragment"
+            app:destination="@id/playMusicFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.batch.exoplayermotionlayout.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/actionMotionFragment"
+            app:destination="@id/motionFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.batch.exoplayermotionlayout.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/playMusicFragment"
+        android:name="com.batch.exoplayermotionlayout.PlayMusicFragment"
+        android:label="PlayMusicFragment">
+        <argument
+            android:name="musicTitle"
+            android:defaultValue="defaultMusicTitle"
+            app:argType="string">
+        </argument>
+        <argument
+            android:name="description"
+            android:defaultValue="defaultDescription"
+            app:argType="string"></argument>
+        <argument
+            android:name="coverPath"
+            android:defaultValue="defaultCoverPath"
+            app:argType="string"></argument>
+    </fragment>
+    <fragment
+        android:id="@+id/motionFragment"
+        android:name="com.batch.exoplayermotionlayout.ui.motion.MotionFragment"
+        android:label="fragment_motion"
+        tools:layout="@layout/fragment_motion" />
 </navigation>

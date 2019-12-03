@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+<!--    <Transition-->
+<!--        motion:constraintSetStart="@id/background_start"-->
+<!--        motion:constraintSetEnd="@id/background_end"-->
+<!--        motion:duration="1000">-->
+<!--    </Transition>-->
+<!--    <ConstraintSet android:id="@+id/background_start">-->
+<!--        <Constraint-->
+<!--            android:id="@+id/background_motion">-->
+<!--            <CustomAttribute-->
+<!--                motion:attributeName="background"-->
+<!--                motion:customColorDrawableValue="#97C0FF"/>-->
+<!--        </Constraint>-->
+<!--    </ConstraintSet>-->
+<!--    <ConstraintSet android:id="@+id/background_end">-->
+<!--        <Constraint-->
+<!--            android:id="@+id/background_motion">-->
+<!--            <CustomAttribute-->
+<!--                motion:attributeName="background"-->
+<!--                motion:customColorDrawableValue="#97C000"/>-->
+<!--        </Constraint>-->
+<!--    </ConstraintSet>-->
+
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@id/end"
+        motion:duration="1000">
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:framePosition="25"
+                motion:motionTarget="background_motion">
+                <CustomAttribute
+                    motion:attributeName="background"
+                    motion:customColorDrawableValue="#97C0FF"/>
+            </KeyAttribute>
+            <KeyAttribute
+                android:scaleX="2"
+                android:scaleY="2"
+                android:rotation="45"
+                motion:framePosition="50"
+                motion:motionTarget="@id/view_motion"/>
+            <KeyPosition
+                motion:keyPositionType="pathRelative"
+                motion:percentY="0.1"
+                motion:percentX="0.5"
+                motion:framePosition="50"
+                motion:motionTarget="@id/view_motion"/>
+        </KeyFrameSet>
+        <OnSwipe
+            motion:touchAnchorId="@id/view_motion"
+            motion:dragDirection="dragUp"/>
+    </Transition>
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/view_motion"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="BackgroundColor"
+                motion:customColorValue="#D81B60"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/view_motion"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp">
+            <CustomAttribute
+                motion:attributeName="BackgroundColor"
+                motion:customColorValue="#9999FF"/>
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Transition
+        motion:constraintSetStart="@layout/fragment_motion_start"
+        motion:constraintSetEnd="@layout/fragment_motion_end"
+        motion:duration="1000">
+        <KeyFrameSet>
+            <KeyPosition
+                motion:keyPositionType="pathRelative"
+                motion:percentY="0.25"
+                motion:framePosition="50"
+                motion:motionTarget="@id/view_motion"/>
+            <KeyAttribute
+                android:scaleX="2"
+                android:scaleY="2"
+                android:rotation="45"
+                motion:motionTarget="@id/view_motion"/>
+        </KeyFrameSet>
+        <OnSwipe
+            motion:touchAnchorId="@id/view_motion"
+            motion:dragDirection="dragDown"/>
+    </Transition>
+</MotionScene>
