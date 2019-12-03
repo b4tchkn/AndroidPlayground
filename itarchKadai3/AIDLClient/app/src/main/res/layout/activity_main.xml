@@ -34,7 +34,7 @@
         android:id="@+id/otenki_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Otenki service"
+        android:text="天気を調べる"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
