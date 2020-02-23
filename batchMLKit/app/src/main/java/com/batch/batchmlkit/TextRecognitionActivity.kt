@@ -17,8 +17,6 @@ import androidx.core.content.FileProvider
 import kotlinx.android.synthetic.main.image_text_recognition.*
 import java.io.File
 import java.lang.Exception
-import java.security.CodeSource
-import java.security.Provider
 import java.text.SimpleDateFormat
 import java.util.*
 
