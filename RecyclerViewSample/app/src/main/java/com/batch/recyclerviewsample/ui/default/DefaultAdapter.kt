@@ -14,6 +14,7 @@ import com.batch.recyclerviewsample.model.Music
 class DefaultAdapter(private val musics: ArrayList<Music>) : RecyclerView.Adapter<DefaultAdapter.DefaultViewHolder>() {
 
     lateinit var listener: OnItemClickListener
+    lateinit var binding: ItemBinding
 
     class DefaultViewHolder(var view: ItemBinding) : RecyclerView.ViewHolder(view.root)
 
