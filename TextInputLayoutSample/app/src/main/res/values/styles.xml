@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyEditText.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="hintTextColor">@android:color/holo_green_dark</item>
+        <item name="errorTextColor">@color/colorAccent</item>
+        <item name="helperTextTextColor">@android:color/holo_blue_dark</item>
+    </style>
 </resources>
