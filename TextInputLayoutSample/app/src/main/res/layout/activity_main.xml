@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:hint="This is hint"
-        app:hintTextColor="@android:color/holo_blue_dark"
+        app:hintTextColor="@android:color/holo_green_dark"
         app:errorEnabled="true"
         app:helperText="This is helper">
         <com.google.android.material.textfield.TextInputEditText
