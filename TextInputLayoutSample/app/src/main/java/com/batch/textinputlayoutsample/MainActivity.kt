@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
             when(TextUtils.isEmpty(custom_edit_text.text)) {
                 true -> {
                     message = "入力されていません"
-//                    custom_text_input.error = message
-                    custom_edit_text.error = message
+                    custom_text_input.error = message
+//                    custom_edit_text.error = message
                 }
                 false -> {
                     message = "入力されています"
