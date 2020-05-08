@@ -4,7 +4,7 @@
             "outputFile": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/946093075d78eb9f74f58a48d61f96ab/material-1.0.0/res/values-land/values-land.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/16255df71047b2a53a0200f409a9520f/material-1.0.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/93bc303e0edf41378a70a682ebb74605/appcompat-1.1.0/res/values-land/values-land.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/a8776343fdac874fa977e09d507079eb/appcompat-1.1.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
