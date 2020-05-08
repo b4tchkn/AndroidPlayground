@@ -15,7 +15,11 @@
         android:id="@+id/navigation_groupie"
         android:name="com.batch.recyclerviewsample.ui.groupie.GroupieFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_groupie" />
+        tools:layout="@layout/fragment_groupie" >
+        <action
+            android:id="@+id/action_to_music_detail_from_groupie"
+            app:destination="@id/navigation_music_detail" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_epoxy"
