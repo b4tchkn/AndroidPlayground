@@ -4,7 +4,7 @@
             "outputFile": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/a8776343fdac874fa977e09d507079eb/appcompat-1.1.0/res/values-v23/values-v23.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/369ee0927748c7a5dc157a9b1cf2fae1/appcompat-1.1.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,37,41,42,43,44",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/4396c2f11dd7e645d9262d21ecccad75/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/20928e7b5e54400d3d9f19d0ac90fc48/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
