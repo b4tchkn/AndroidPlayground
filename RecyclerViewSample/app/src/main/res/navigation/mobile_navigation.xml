@@ -23,7 +23,7 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_epoxy" >
         <action
-            android:id="@+id/action_to_music_detail"
+            android:id="@+id/action_to_music_detail_from_epoxy"
             app:destination="@+id/navigation_music_detail" />
     </fragment>
 
