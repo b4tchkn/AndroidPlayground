@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.batch.recyclerviewsample.R
 import com.batch.recyclerviewsample.model.Music
@@ -49,6 +50,7 @@ class EpoxyFragment : Fragment(), ListController.ClickListener {
     }
 
     override fun itemClickListener(item: Music) {
+        findNavController().navigate(R.id.navigation_music_detail)
         Toast.makeText(context, item.toString(), Toast.LENGTH_SHORT).show()
     }
 }

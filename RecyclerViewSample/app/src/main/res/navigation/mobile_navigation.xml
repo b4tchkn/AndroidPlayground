@@ -22,4 +22,10 @@
         android:name="com.batch.recyclerviewsample.ui.epoxy.EpoxyFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_epoxy" />
+
+    <fragment
+        android:id="@+id/navigation_music_detail"
+        android:name="com.batch.recyclerviewsample.ui.common.MusicDetailFragment"
+        android:label="@string/title_music_detail"
+        tools:layout="@layout/fragment_music_detail" />
 </navigation>
