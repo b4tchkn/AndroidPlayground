@@ -50,7 +50,8 @@ class EpoxyFragment : Fragment(), ListController.ClickListener {
     }
 
     override fun itemClickListener(item: Music) {
-        findNavController().navigate(R.id.navigation_music_detail)
+        val action = EpoxyFragmentDirections.actionToMusicDetail(item)
+        findNavController().navigate(action)
         Toast.makeText(context, item.toString(), Toast.LENGTH_SHORT).show()
     }
 }

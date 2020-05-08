@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: "androidx.navigation.safeargs"
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -26,6 +28,9 @@ android {
     dataBinding.enabled = true
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    androidExtensions {
+        experimental = true
     }
 }
 

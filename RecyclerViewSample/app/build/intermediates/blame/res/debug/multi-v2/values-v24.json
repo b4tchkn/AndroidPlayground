@@ -4,7 +4,7 @@
             "outputFile": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/62d559666a7fc02dc41f6e64f0b72868/media-1.0.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/eaabdc14062f0bf0a1107a350a68eb27/media-1.0.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/369ee0927748c7a5dc157a9b1cf2fae1/appcompat-1.1.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/333109926c7c5fe0203424ac84a49bed/appcompat-1.1.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
