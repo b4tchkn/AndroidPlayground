@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,18 +15,18 @@ import com.batch.recyclerviewsample.model.Music
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.OnItemClickListener
-import kotlinx.android.synthetic.main.fragment_groupie.*
+import timber.log.Timber
+
 
 class GroupieFragment : Fragment() {
 
     private lateinit var groupieViewModel: GroupieViewModel
     private val listAdapter = GroupAdapter<GroupieViewHolder>()
     private lateinit var binding: FragmentGroupieBinding
-    private val onItemClickListener = OnItemClickListener {item, view ->
-        val index = this.listAdapter.getAdapterPosition(item)
-        Toast.makeText(context, index.toString(), Toast.LENGTH_SHORT).show()
+    private val myItemClickListener: OnItemClickListener = OnItemClickListener { item, view ->
+        val position = item.getPosition(item)
+        Toast.makeText(context, "アイテムクリックされた", Toast.LENGTH_SHORT).show()
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,29 +43,28 @@ class GroupieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         groupieViewModel.fetchRemote()
-        observeViewModel()
-    }
-
-    private fun observeViewModel() {
-        groupieViewModel.musics.observe(this, Observer {
-            initRecyclerView(it.toListItem())
-        })
-    }
-
-    private fun initRecyclerView(listItem: List<ListItem>) {
-        listAdapter.apply {
-            update(listItem)
-            setOnItemClickListener(onItemClickListener)
-        }
         binding.groupieRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = listAdapter
         }
-//        groupie_recycler_view.apply {
-//        }
-    }
 
+        listAdapter.apply {
+            setOnItemClickListener(myItemClickListener)
+        }
+
+        // クリックできない方法
+//        listAdapter.apply {
+//            setOnItemClickListener { item, view ->
+//                Timber.d("きょええええええええええええええ")
+//            }
+//        }
+
+        groupieViewModel.musics.observe(viewLifecycleOwner, Observer {
+            listAdapter.addAll(it.toListItem())
+            listAdapter.update(it.toListItem())
+        })
+    }
     private fun List<Music>.toListItem(): List<ListItem> {
         return this.map {
             ListItem(it)

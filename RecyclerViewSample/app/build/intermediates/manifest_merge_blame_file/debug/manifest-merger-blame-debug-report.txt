@@ -37,36 +37,37 @@
 23-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:13:9-54
 24        android:supportsRtl="true"
 24-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:14:9-35
-25        android:theme="@style/AppTheme" >
-25-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:16:9-40
-26        <activity
-26-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:17:9-25:20
-27            android:name="com.batch.recyclerviewsample.MainActivity"
-27-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:18:13-41
-28            android:label="@string/app_name" >
-28-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:19:13-45
-29            <intent-filter>
-29-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:20:13-24:29
-30                <action android:name="android.intent.action.MAIN" />
-30-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:21:17-69
-30-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:21:25-66
-31
-32                <category android:name="android.intent.category.LAUNCHER" />
-32-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:23:17-77
-32-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:23:27-74
-33            </intent-filter>
-34        </activity>
-35
-36        <provider
-36-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
-37            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-37-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
-38            android:authorities="com.batch.recyclerviewsample.lifecycle-process"
-38-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
-39            android:exported="false"
-39-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
-40            android:multiprocess="true" />
-40-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
-41    </application>
-42
-43</manifest>
+25        android:testOnly="true"
+26        android:theme="@style/AppTheme" >
+26-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:16:9-40
+27        <activity
+27-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:17:9-25:20
+28            android:name="com.batch.recyclerviewsample.MainActivity"
+28-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:18:13-41
+29            android:label="@string/app_name" >
+29-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:19:13-45
+30            <intent-filter>
+30-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:20:13-24:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:21:17-69
+31-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:21:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:23:17-77
+33-->/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/AndroidManifest.xml:23:27-74
+34            </intent-filter>
+35        </activity>
+36
+37        <provider
+37-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+38            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+38-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+39            android:authorities="com.batch.recyclerviewsample.lifecycle-process"
+39-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+40            android:exported="false"
+40-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+41            android:multiprocess="true" />
+41-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/batch/.gradle/caches/transforms-2/files-2.1/bd19193ab8e08054f7cd8531ec8482a4/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+42    </application>
+43
+44</manifest>
