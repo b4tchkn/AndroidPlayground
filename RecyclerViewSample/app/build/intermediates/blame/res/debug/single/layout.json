@@ -6,5 +6,9 @@
     {
         "merged": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_groupie.xml",
         "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/layout/fragment_groupie.xml"
+    },
+    {
+        "merged": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/header_view.xml",
+        "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/layout/header_view.xml"
     }
 ]

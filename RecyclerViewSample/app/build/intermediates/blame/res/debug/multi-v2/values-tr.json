@@ -4,7 +4,24 @@
             "outputFile": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tr/values-tr.xml",
             "map": [
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/a8776343fdac874fa977e09d507079eb/appcompat-1.1.0/res/values-tr/values-tr.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/07c11ddfdea4b030f61448ccea8dd0af/navigation-ui-2.1.0/res/values-tr/values-tr.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,160",
+                        "endColumns": "104,116",
+                        "endOffsets": "155,272"
+                    },
+                    "to": {
+                        "startLines": "29,30",
+                        "startColumns": "4,4",
+                        "startOffsets": "2797,2902",
+                        "endColumns": "104,116",
+                        "endOffsets": "2897,3014"
+                    }
+                },
+                {
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/333109926c7c5fe0203424ac84a49bed/appcompat-1.1.0/res/values-tr/values-tr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/da099017a6de8e2dd996f1d4e4106af1/core-1.1.0/res/values-tr/values-tr.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/bf63a022af036bfa18d8fbee1f093f6c/core-1.1.0/res/values-tr/values-tr.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -35,23 +52,6 @@
                         "startOffsets": "3098",
                         "endColumns": "100",
                         "endOffsets": "3194"
-                    }
-                },
-                {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/70a216a045c8a9ce5b1165c1c354430c/navigation-ui-2.1.0/res/values-tr/values-tr.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,160",
-                        "endColumns": "104,116",
-                        "endOffsets": "155,272"
-                    },
-                    "to": {
-                        "startLines": "29,30",
-                        "startColumns": "4,4",
-                        "startOffsets": "2797,2902",
-                        "endColumns": "104,116",
-                        "endOffsets": "2897,3014"
                     }
                 }
             ]
