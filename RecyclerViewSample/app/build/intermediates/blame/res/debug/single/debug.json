@@ -12,6 +12,10 @@
         "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/drawable/ic_music_note.xml"
     },
     {
+        "merged": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/res/merged/debug/layout_header_view.xml.flat",
+        "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/layout/header_view.xml"
+    },
+    {
         "merged": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
         "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },

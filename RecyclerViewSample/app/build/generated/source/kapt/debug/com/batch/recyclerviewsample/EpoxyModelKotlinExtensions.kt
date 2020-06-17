@@ -12,3 +12,10 @@ inline fun EpoxyController.item(modelInitializer: ItemBindingModelBuilder.() -> 
     }
     .addTo(this)
 }
+
+inline fun EpoxyController.headerView(modelInitializer: HeaderViewBindingModelBuilder.() -> Unit) {
+    HeaderViewBindingModel_().apply {
+        modelInitializer()
+    }
+    .addTo(this)
+}
