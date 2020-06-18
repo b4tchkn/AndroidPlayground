@@ -1,4 +1,4 @@
-#Wed Jun 17 16:13:32 JST 2020
+#Thu Jun 18 20:22:01 JST 2020
 base.0=/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

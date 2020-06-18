@@ -39,7 +39,7 @@ def retrofitVersion = '2.6.0'
 def moshiVersion = '1.8.0'
 def groupieVersion = '2.7.0'
 def glideVersion = '4.10.0'
-def epoxyVersion = '3.8.0'
+def epoxyVersion = '3.9.0'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
