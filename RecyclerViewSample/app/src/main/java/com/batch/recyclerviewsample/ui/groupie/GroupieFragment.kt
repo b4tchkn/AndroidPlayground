@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.batch.recyclerviewsample.R
 import com.batch.recyclerviewsample.databinding.FragmentGroupieBinding
 import com.batch.recyclerviewsample.model.Music
+import com.batch.recyclerviewsample.ui.common.CommonViewModel
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.OnItemClickListener
@@ -20,7 +21,7 @@ import timber.log.Timber
 
 class GroupieFragment : Fragment() {
 
-    private lateinit var groupieViewModel: GroupieViewModel
+    private lateinit var groupieViewModel: CommonViewModel
     private val listAdapter = GroupAdapter<GroupieViewHolder>()
     private lateinit var binding: FragmentGroupieBinding
     private val myItemClickListener: OnItemClickListener = OnItemClickListener { item, view ->
@@ -34,7 +35,7 @@ class GroupieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         groupieViewModel =
-            ViewModelProviders.of(this).get(GroupieViewModel::class.java)
+            ViewModelProviders.of(this).get(CommonViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_groupie, container, false)
         binding = FragmentGroupieBinding.bind(view)
         return view
@@ -42,7 +43,7 @@ class GroupieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        groupieViewModel.fetchRemote()
+        groupieViewModel.fetchMusic()
         binding.groupieRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
@@ -60,7 +61,7 @@ class GroupieFragment : Fragment() {
 //            }
 //        }
 
-        groupieViewModel.musics.observe(viewLifecycleOwner, Observer {
+        groupieViewModel.musicList.observe(viewLifecycleOwner, Observer {
             listAdapter.addAll(it.toListItem())
             listAdapter.update(it.toListItem())
         })
