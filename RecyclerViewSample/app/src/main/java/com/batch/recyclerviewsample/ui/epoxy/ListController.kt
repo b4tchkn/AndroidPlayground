@@ -42,6 +42,8 @@ class ListController(private val callback: ClickListener) : TypedEpoxyController
 
         carousel {
             id("carousel extension")
+            numViewsToShowOnScreen(1.2f)
+            hasFixedSize(false)
             models(itemModels)
         }
     }
