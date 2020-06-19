@@ -26,7 +26,7 @@ class GroupieFragment : Fragment() {
     private lateinit var binding: FragmentGroupieBinding
     private val myItemClickListener: OnItemClickListener = OnItemClickListener { item, view ->
         val position = item.getPosition(item)
-        Toast.makeText(context, "アイテムクリックされた", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "$position 目のアイテムクリックされた", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(
@@ -53,13 +53,6 @@ class GroupieFragment : Fragment() {
         listAdapter.apply {
             setOnItemClickListener(myItemClickListener)
         }
-
-        // クリックできない方法
-//        listAdapter.apply {
-//            setOnItemClickListener { item, view ->
-//                Timber.d("きょええええええええええええええ")
-//            }
-//        }
 
         groupieViewModel.musicList.observe(viewLifecycleOwner, Observer {
             listAdapter.addAll(it.toListItem())
