@@ -20,6 +20,10 @@
         "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/res/merged/debug/layout_my_carousel_layout.xml.flat",
+        "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/layout/my_carousel_layout.xml"
+    },
+    {
         "merged": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/build/intermediates/res/merged/debug/drawable_ic_dashboard_black_24dp.xml.flat",
         "source": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/RecyclerViewSample/app/src/main/res/drawable/ic_dashboard_black_24dp.xml"
     },

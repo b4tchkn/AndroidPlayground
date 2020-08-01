@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,16 +14,18 @@ import com.batch.recyclerviewsample.R
 import com.batch.recyclerviewsample.databinding.FragmentGroupieBinding
 import com.batch.recyclerviewsample.model.Music
 import com.batch.recyclerviewsample.ui.common.CommonViewModel
+import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.OnItemClickListener
+import com.xwray.groupie.groupiex.plusAssign
 import timber.log.Timber
 
 
 class GroupieFragment : Fragment() {
 
-    private lateinit var groupieViewModel: CommonViewModel
-    private val listAdapter = GroupAdapter<GroupieViewHolder>()
+    private lateinit var viewModel: CommonViewModel
+    private val adapter = GroupAdapter<GroupieViewHolder>()
     private lateinit var binding: FragmentGroupieBinding
     private val myItemClickListener: OnItemClickListener = OnItemClickListener { item, view ->
         val position = item.getPosition(item)
@@ -34,34 +37,68 @@ class GroupieFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        groupieViewModel =
+        viewModel =
             ViewModelProviders.of(this).get(CommonViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_groupie, container, false)
         binding = FragmentGroupieBinding.bind(view)
         return view
     }
 
+    @ExperimentalStdlibApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        groupieViewModel.fetchMusic()
+        viewModel.fetchMusic()
         binding.groupieRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             setHasFixedSize(true)
-            adapter = listAdapter
+            adapter = adapter
         }
 
-        listAdapter.apply {
+        adapter.apply {
             setOnItemClickListener(myItemClickListener)
         }
 
-        groupieViewModel.musicList.observe(viewLifecycleOwner, Observer {
-            listAdapter.addAll(it.toListItem())
-            listAdapter.update(it.toListItem())
+        // carousel追加
+//        adapter.add(makeCarouselItem())
+
+        viewModel.musicList.observe(viewLifecycleOwner, Observer { list->
+//            adapter.addAll(it.toListItem())
+//            adapter.update(it.toListItem())
+
+            val groupList = mutableListOf<Group>()
+            adapter += groupList
+
+            list.forEach {
+                groupList.add(ListItem(it))
+            }
+
+            adapter.update(groupList)
+
         })
     }
-    private fun List<Music>.toListItem(): List<ListItem> {
-        return this.map {
-            ListItem(it)
+
+//    private fun List<Music>.toListItem(): List<ListItem> {
+//        return this.map {
+//            ListItem(it)
+//        }
+//    }
+
+    @ExperimentalStdlibApi
+    private fun makeCarouselItem(): CarouselListItem {
+        val carouselAdapter = GroupAdapter<GroupieViewHolder>()
+        carouselAdapter.apply {
+//            setOnItemClickListener()
         }
+
+        viewModel.musicList.observe(viewLifecycleOwner, Observer { musicList ->
+            val itemList = buildList<Group> {
+                musicList.forEach { music ->
+                    this.add(ListItem(music))
+                }
+            }
+            carouselAdapter.update(itemList)
+        })
+
+        return CarouselListItem(carouselAdapter)
     }
 }
