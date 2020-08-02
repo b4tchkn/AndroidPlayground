@@ -8,6 +8,5 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         UserDatabase.init(applicationContext)
-        Log.d("SMAP", "Database initされた")
     }
 }
