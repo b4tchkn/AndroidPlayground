@@ -1,12 +1,14 @@
 package com.batch.room_practice
 
 import android.app.Application
-import android.util.Log
 
 class MyApplication : Application() {
 
+    companion object {
+        lateinit var userDatabase: UserDatabase
+    }
     override fun onCreate() {
         super.onCreate()
-        UserDatabase.init(applicationContext)
+        userDatabase = UserDatabase.getInstance(applicationContext)
     }
 }

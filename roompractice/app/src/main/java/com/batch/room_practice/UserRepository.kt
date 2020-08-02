@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 
 class UserRepository {
 
-    private val userDao = UserDatabase.getInstance().getUserDao()
+    private val userDao = MyApplication.userDatabase.getUserDao()
 
     fun getUsers(): LiveData<List<User>> = userDao.getAllUser()
 
