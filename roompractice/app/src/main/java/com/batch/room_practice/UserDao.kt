@@ -10,6 +10,6 @@ interface UserDao {
     @Query("select * from user_table")
     fun getAllUser(): List<User>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(user: User)
 }

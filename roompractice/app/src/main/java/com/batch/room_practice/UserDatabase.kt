@@ -9,17 +9,28 @@ import androidx.room.RoomDatabase
 abstract class UserDatabase : RoomDatabase() {
     abstract fun getUserDao(): UserDao
 
-    companion object {
-        private const val dbName = "user.db"
-        private var instance: UserDatabase? = null
+//    companion object {
+//        private const val dbName = "user.db"
+//        private var instance: UserDatabase? = null
+//
+//        fun getUserDatabase(context: Context): UserDatabase {
+//            instance = Room.databaseBuilder(context, UserDatabase::class.java, dbName)
+//                .fallbackToDestructiveMigration()
+//                .build()
+//            return instance
+//        }
+//    }
 
-        fun getUserDatabase(context: Context): UserDatabase {
-            if (instance == null) {
-                instance = Room.databaseBuilder(context, UserDatabase::class.java, dbName)
-                    .fallbackToDestructiveMigration()
-                    .build()
-            }
-            return requireNotNull(instance)
+    companion object {
+        private var instance: UserDatabase? = null
+        private const val DB_NAME = "user"
+        fun init(context: Context) {
+            instance = Room.databaseBuilder(context, UserDatabase::class.java, DB_NAME)
+                .fallbackToDestructiveMigration().build()
+        }
+
+        fun getInstance(): UserDatabase {
+            return instance!!
         }
     }
 }
