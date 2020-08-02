@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.observe
 import kotlinx.android.synthetic.main.fragment_user.*
 import kotlinx.coroutines.launch
 
@@ -32,8 +33,8 @@ class UserFragment : Fragment() {
             viewModel.insertUser(User(id = 0, name = "BATC"))
         }
 
-        viewModel.users.observe(viewLifecycleOwner, Observer {
+        viewModel.users.observe(viewLifecycleOwner) {
             text_user.text = it.toString()
-        })
+        }
     }
 }
