@@ -27,10 +27,8 @@ class UserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getUsers()
-
         button_add.setOnClickListener {
-            viewModel.insertUser(User(id = 0, name = "BATC"))
+            viewModel.insertUser(User(id = 0, name = "BATCa"))
         }
 
         viewModel.users.observe(viewLifecycleOwner) {
