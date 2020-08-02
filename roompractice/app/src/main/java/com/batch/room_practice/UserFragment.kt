@@ -29,7 +29,7 @@ class UserFragment : Fragment() {
         viewModel.getUsers()
 
         button_add.setOnClickListener {
-            viewModel.insertUser(User(id = 0, name = "BATCH"))
+            viewModel.insertUser(User(id = 0, name = "BATC"))
         }
 
         viewModel.users.observe(viewLifecycleOwner, Observer {
