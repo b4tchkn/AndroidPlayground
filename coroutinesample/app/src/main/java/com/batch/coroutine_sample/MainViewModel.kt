@@ -3,10 +3,7 @@ package com.batch.coroutine_sample
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -22,15 +19,23 @@ class MainViewModel : ViewModel() {
         _count.value++
         if (_count.value == 10) {
             viewModelScope.launch {
-                Log.d("yahoooo", "Event流すぞ！")
+                Log.d("count10Event", "Event流すぞ！")
                 _count10Event.emit(true)
+            }
+        } else {
+            viewModelScope.launch {
+                _count10Event.emit(false)
             }
         }
     }
 
-    fun sendSharedFlowEvent() {
-        viewModelScope.launch {
-            _count10Event.emit(true)
+    fun testFlow(): Flow<Int> {
+        return flow {
+            for (i in 1..5) {
+                Log.d("testFlow", "値流す$i")
+                emit(i)
+                kotlinx.coroutines.delay(300)
+            }
         }
     }
 }
