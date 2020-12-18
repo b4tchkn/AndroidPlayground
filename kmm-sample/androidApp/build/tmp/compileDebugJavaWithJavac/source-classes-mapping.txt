@@ -1,0 +1,2 @@
+com/batch/kmm_samle/androidApp/BuildConfig.java
+ com.batch.kmm_samle.androidApp.BuildConfig
