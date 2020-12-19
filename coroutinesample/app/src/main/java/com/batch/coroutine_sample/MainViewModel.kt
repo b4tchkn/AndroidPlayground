@@ -15,6 +15,10 @@ class MainViewModel : ViewModel() {
     val count10Event: SharedFlow<Boolean>
         get() = _count10Event
 
+    private val _testSharedFlow = MutableSharedFlow<Int>()
+    val testSharedFlow: SharedFlow<Int>
+        get() = _testSharedFlow
+
     fun incrementCounter() {
         _count.value++
         if (_count.value == 10) {
@@ -36,6 +40,12 @@ class MainViewModel : ViewModel() {
                 emit(i)
                 kotlinx.coroutines.delay(300)
             }
+        }
+    }
+
+    fun testSharedFlow() {
+        viewModelScope.launch {
+            _testSharedFlow.emit(0)
         }
     }
 }

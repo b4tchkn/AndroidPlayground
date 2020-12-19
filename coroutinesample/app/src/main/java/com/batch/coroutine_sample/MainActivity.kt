@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.batch.coroutine_sample.databinding.ActivityMainBinding
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -28,10 +28,33 @@ class MainActivity : AppCompatActivity() {
                 Log.d("countStateFlow", it.toString())
             }
         }
-        this.lifecycleScope.launch {
-            viewModel.testFlow()
-                .collect { Log.d("testFlow", it.toString()) }
 
+        lifecycleScope.launch {
+            viewModel.testFlow().collect { Log.d("testFlow-launch", it.toString()) }
+        }
+
+        lifecycleScope.launch {
+            viewModel.testSharedFlow.collect { Log.d("testSharedFlow", it.toString()) }
+        }
+
+        viewModel.testSharedFlow()
+
+        viewModel.testFlow()
+            .onEach {
+                // 値取得
+                Log.d("testFlow", it.toString())
+            }
+            .catch {
+                // エラー時
+                Log.d("testFlow", "testFlow catch")
+            }
+            .onCompletion {
+                // 完了イベント取得
+                Log.d("testFlow", "完了イベント")
+            }
+            .launchIn(lifecycleScope)
+
+        this.lifecycleScope.launch {
             viewModel.count10Event.collect {
                 if (it) {
                     binding.textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40F)
