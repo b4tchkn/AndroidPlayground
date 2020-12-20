@@ -8,8 +8,8 @@ import kotlinx.coroutines.launch
 class UserViewModel : ViewModel() {
 
 
-    val users: LiveData<List<User>> = UserRepository().getUsers()
-    private val repository = UserRepository()
+    val users: LiveData<List<User>> = UserRepositoryImpl().getUsers()
+    private val repository = UserRepositoryImpl()
 
     fun insertUser(user: User) {
         viewModelScope.launch {
