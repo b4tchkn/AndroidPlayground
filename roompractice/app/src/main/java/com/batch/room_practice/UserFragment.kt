@@ -9,8 +9,10 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import kotlinx.android.synthetic.main.fragment_user.*
+import kotlinx.coroutines.flow.collect
 
 class UserFragment : Fragment() {
 
@@ -30,8 +32,10 @@ class UserFragment : Fragment() {
             showDialog()
         }
 
-        viewModel.users.observe(viewLifecycleOwner) {
-            text_user.text = it.toString()
+        lifecycleScope.launchWhenStarted {
+            viewModel.users.collect {
+                text_user.text = it.toString()
+            }
         }
     }
 
