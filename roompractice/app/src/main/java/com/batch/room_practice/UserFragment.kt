@@ -27,7 +27,6 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         button_add.setOnClickListener {
-//            viewModel.insertUser(User(id = 0, name = "BATCa"))
             showDialog()
         }
 
