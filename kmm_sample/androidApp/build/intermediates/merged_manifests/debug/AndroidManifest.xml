@@ -14,7 +14,6 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.batch.kmm_sample.androidApp.MainActivity" >
             <intent-filter>

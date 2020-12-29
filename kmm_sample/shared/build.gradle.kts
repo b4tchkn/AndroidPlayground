@@ -84,4 +84,11 @@ val packForXcode by tasks.creating(Sync::class) {
     into(targetDir)
 }
 
+sqldelight {
+    database("AppDatabase") {
+        packageName = "com.batch.kmm_sample.shared.cache"
+        sourceFolders = listOf("sqldelight")
+    }
+}
+
 tasks.getByName("build").dependsOn(packForXcode)

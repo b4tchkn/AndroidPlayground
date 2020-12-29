@@ -4,7 +4,7 @@
             "outputFile": "/Users/batch/AndroidStudioProjects/batchAndroidPlayground/kmm_sample/androidApp/build/intermediates/incremental/mergeDebugResources/merged.dir/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/57318752ae874de491aaa05ff87a1be7/material-1.2.1/res/values-small-v4/values-small-v4.xml",
+                    "source": "/Users/batch/.gradle/caches/transforms-2/files-2.1/a35d5f9797ca2bfc62dded18d2f4e174/material-1.2.1/res/values-small-v4/values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
