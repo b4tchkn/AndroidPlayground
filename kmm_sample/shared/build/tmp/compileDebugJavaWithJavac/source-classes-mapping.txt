@@ -1,2 +1,0 @@
-com/batch/kmm_sample/shared/BuildConfig.java
- com.batch.kmm_sample.shared.BuildConfig
