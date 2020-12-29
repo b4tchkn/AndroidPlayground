@@ -51,12 +51,28 @@ kotlin {
                 implementation("junit:junit:4.13.1")
             }
         }
+
+        val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+            if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+                ::iosArm64
+            else
+                ::iosX64
+
+        iOSTarget("ios") {
+            binaries {
+                framework {
+                    baseName = "shared"
+                }
+            }
+        }
+
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
                 implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
             }
         }
+
         val iosTest by getting
     }
 }
