@@ -17,6 +17,9 @@ dependencies {
 
 android {
     compileSdkVersion(30)
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     defaultConfig {
         applicationId = "com.batch.kmm_sample.androidApp"
         minSdkVersion(24)
