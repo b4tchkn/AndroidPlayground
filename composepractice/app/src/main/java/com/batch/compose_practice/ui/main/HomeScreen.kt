@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.batch.compose_practice.R
 import com.batch.compose_practice.ui.COUNT_UP
+import com.batch.compose_practice.ui.INSTAGRAM_HOME
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -19,16 +20,19 @@ fun HomeScreen(navController: NavController) {
             TopAppBar(
                 title = { Text(text = title) }
             )
-        },
-        content = {
-            LazyColumn {
-                item {
-                    MainPracticeSectionItem(
-                        sectionTitle = stringResource(id = R.string.home_count_up_section_title),
-                        navigateTo = { navController.navigate(COUNT_UP) })
-                }
-                item { }
+        }
+    ) {
+        LazyColumn {
+            item {
+                MainPracticeSectionItem(
+                    sectionTitle = stringResource(id = R.string.home_count_up_section_title),
+                    navigateTo = { navController.navigate(COUNT_UP) })
+            }
+            item {
+                MainPracticeSectionItem(
+                    sectionTitle = stringResource(id = R.string.home_instagram_home_section_title),
+                    navigateTo = { navController.navigate(INSTAGRAM_HOME) })
             }
         }
-    )
+    }
 }

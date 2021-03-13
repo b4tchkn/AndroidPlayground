@@ -3,7 +3,11 @@
     
     <!--  home  -->
     <string name="home_count_up_section_title">Count up</string>
+    <string name="home_instagram_home_section_title">Instagram Home</string>
 
     <!--  count_up  -->
     <string name="count_up_title">Count up</string>
+
+    <!--  instagram_home  -->
+    <string name="instagram_home_title">Instagram</string>
 </resources>

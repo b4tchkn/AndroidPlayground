@@ -6,7 +6,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.batch.compose_practice.ui.COUNT_UP
 import com.batch.compose_practice.ui.HOME
+import com.batch.compose_practice.ui.INSTAGRAM_HOME
 import com.batch.compose_practice.ui.count_up.CountUpScreen
+import com.batch.compose_practice.ui.instagram_home.InstagramHomeScreen
 import com.batch.compose_practice.ui.main.HomeScreen
 import com.batch.compose_practice.ui.theme.ComposepracticeTheme
 
@@ -20,6 +22,9 @@ fun ComposePracticeApp() {
             }
             composable(COUNT_UP) {
                 CountUpScreen(navController = navController)
+            }
+            composable(INSTAGRAM_HOME) {
+                InstagramHomeScreen(navController = navController)
             }
         }
     }

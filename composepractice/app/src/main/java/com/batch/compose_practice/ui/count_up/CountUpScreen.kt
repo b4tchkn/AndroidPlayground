@@ -33,7 +33,6 @@ fun CountUpScreen(navController: NavController) {
                             painter = painterResource(id = R.drawable.ic_baseline_arrow_back),
                             contentDescription = null
                         )
-
                     }
                 },
                 title = {
