@@ -18,7 +18,21 @@ fun CountUpScreen(navController: NavController) {
     Scaffold(
         topBar = {
             val title = stringResource(id = R.string.count_up_title)
-            TopAppBar(title = { Text(text = title) })
+            TopAppBar(
+                navigationIcon = {
+                    IconButton(
+                        onClick = { navController.popBackStack() }
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_baseline_arrow_back),
+                            contentDescription = null
+                        )
+
+                    }
+                },
+                title = {
+                    Text(text = title)
+                })
         },
         floatingActionButton = {
             FloatingActionButton(
