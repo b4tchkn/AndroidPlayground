@@ -1,39 +1,26 @@
 package com.batch.compose_practice
 
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
-import com.batch.compose_practice.ui.main.MainPracticeSectionItem
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.batch.compose_practice.ui.COUNT_UP
+import com.batch.compose_practice.ui.HOME
+import com.batch.compose_practice.ui.count_up.CountUpScreen
+import com.batch.compose_practice.ui.main.HomeScreen
 import com.batch.compose_practice.ui.theme.ComposepracticeTheme
 
 @Composable
 fun ComposePracticeApp() {
+    val navController = rememberNavController()
     ComposepracticeTheme {
-        AppContent()
-    }
-}
-
-@Composable
-private fun AppContent() {
-    Scaffold(
-        topBar = {
-            val title = stringResource(id = R.string.app_name)
-            TopAppBar(
-                title = { Text(text = title) }
-            )
-        },
-        content = {
-            LazyColumn {
-                item {
-                    MainPracticeSectionItem(
-                        sectionTitle = stringResource(id = R.string.count_up_section_title),
-                        navigateTo = { /*TODO*/ })
-                }
-                item { }
+        NavHost(navController = navController, startDestination = HOME) {
+            composable(HOME) {
+                HomeScreen(navController = navController)
+            }
+            composable(COUNT_UP) {
+                CountUpScreen(navController = navController)
             }
         }
-    )
+    }
 }
