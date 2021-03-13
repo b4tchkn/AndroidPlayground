@@ -6,15 +6,21 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.batch.compose_practice.R
 
 @Composable
 fun CountUpScreen(navController: NavController) {
+    val viewModel: CountUpViewModel = viewModel()
+    val count by viewModel.count.collectAsState()
+
     Scaffold(
         topBar = {
             val title = stringResource(id = R.string.count_up_title)
@@ -37,6 +43,7 @@ fun CountUpScreen(navController: NavController) {
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
+                    viewModel.countUp()
                 },
                 content = {
                     Icon(
@@ -54,7 +61,7 @@ fun CountUpScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(text = "Hello", style = MaterialTheme.typography.body1)
+            Text(text = count.toString(), style = MaterialTheme.typography.body1)
         }
     }
 }
