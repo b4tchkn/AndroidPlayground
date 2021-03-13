@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">compose-practice</string>
+    
+    <!--  main  -->
+    <string name="count_up_section_title">Count up</string>
 </resources>

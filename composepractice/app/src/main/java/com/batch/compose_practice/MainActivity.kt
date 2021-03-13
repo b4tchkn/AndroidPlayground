@@ -11,10 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposepracticeTheme {
-                Surface(color = MaterialTheme.colors.background) {
-                }
-            }
+            ComposePracticeApp()
         }
     }
 }
