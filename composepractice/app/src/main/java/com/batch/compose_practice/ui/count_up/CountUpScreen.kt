@@ -38,7 +38,8 @@ fun CountUpScreen(navController: NavController) {
                 },
                 title = {
                     Text(text = title)
-                })
+                }
+            )
         },
         floatingActionButton = {
             FloatingActionButton(
