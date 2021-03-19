@@ -10,6 +10,7 @@ data class Post(
     val postedAt: String,
     val imageResourceIds: List<Int>,
     val likeCount: Int,
+    val likedAccountIds: List<String>,
 ) {
     data class Reply(
         val accountIconImageResourceId: Int,

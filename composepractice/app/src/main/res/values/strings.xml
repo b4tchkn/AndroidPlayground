@@ -10,4 +10,6 @@
 
     <!--  instagram_home  -->
     <string name="instagram_home_title">Instagram</string>
+    <string name="instagram_home_post_item_like_info_section_info_only_one">いいね！:%s</string>
+    <string name="instagram_home_post_item_like_info_section_info_multi">いいね！:%s、他</string>
 </resources>

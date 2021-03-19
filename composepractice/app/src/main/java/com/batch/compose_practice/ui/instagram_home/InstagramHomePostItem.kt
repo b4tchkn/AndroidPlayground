@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,19 +19,20 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.batch.compose_practice.R
-import com.batch.compose_practice.ui.theme.ComposepracticeTheme
 import com.batch.compose_practice.ui.theme.instagramGradient
 import com.batch.compose_practice.ui.theme.typography
 
 @Composable
 fun InstagramHomePostItem(post: Post) {
+    val parentMaxWidth = Modifier
     Column(modifier = Modifier.fillMaxWidth()) {
         AccountInfoSection(post = post)
-        ImageSliderSection(postImageResourceIds = post.imageResourceIds)
+        ImageSliderSection(postImageResourceIds = post.imageResourceIds, modifier = parentMaxWidth)
         ButtonsSection()
+        if (post.likedAccountIds.isNotEmpty()) LikeInfoSection(post = post)
     }
 }
 
@@ -85,22 +87,37 @@ private fun AccountInfoSection(post: Post) {
 }
 
 @Composable
-private fun ImageSliderSection(postImageResourceIds: List<Int>) {
-    LazyRow(
-        modifier = Modifier
-            .height(440.dp)
-            .fillMaxWidth(),
-    ) {
-        items(postImageResourceIds) {
+private fun ImageSliderSection(postImageResourceIds: List<Int>, modifier: Modifier) {
+    LazyRow {
+        items(postImageResourceIds) { imageResourceId ->
             Image(
-                painter = painterResource(id = it),
+                modifier = modifier.height(400.dp),
+                painter = painterResource(id = imageResourceId),
                 contentDescription = null,
-                modifier = Modifier
-                    .height(440.dp)
-                    .fillMaxWidth(),
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Crop
             )
         }
+//
+//        item {
+//            Image(
+//                painter = painterResource(id = postImageResourceIds[1]),
+//                contentDescription = null,
+//                modifier = Modifier
+//                    .height(440.dp)
+//                    .fillMaxWidth(),
+//                contentScale = ContentScale.Crop,
+//            )
+//        }
+//        items(postImageResourceIds) {
+//            Image(
+//                painter = painterResource(id = it),
+//                contentDescription = null,
+//                modifier = Modifier
+//                    .height(440.dp)
+//                    .fillMaxWidth(),
+//                contentScale = ContentScale.Crop,
+//            )
+//        }
     }
 }
 
@@ -137,4 +154,22 @@ private fun ButtonsSection() {
             )
         }
     }
+}
+
+@Composable
+private fun LikeInfoSection(post: Post) {
+    Text(
+        text =
+        if (post.likeCount == 1)
+            stringResource(
+                id = R.string.instagram_home_post_item_like_info_section_info_only_one,
+                post.likedAccountIds.first(),
+            )
+        else stringResource(
+            id = R.string.instagram_home_post_item_like_info_section_info_multi,
+            post.likedAccountIds.first(),
+        ),
+        style = MaterialTheme.typography.body2,
+        modifier = Modifier.padding(horizontal = 8.dp)
+    )
 }
