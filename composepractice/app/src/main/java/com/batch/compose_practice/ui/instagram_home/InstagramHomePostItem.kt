@@ -1,8 +1,11 @@
 package com.batch.compose_practice.ui.instagram_home
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -18,12 +21,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.batch.compose_practice.R
 import com.batch.compose_practice.ui.theme.instagramGradient
 import com.batch.compose_practice.ui.theme.typography
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 @Composable
 fun InstagramHomePostItem(post: Post) {
@@ -33,6 +40,8 @@ fun InstagramHomePostItem(post: Post) {
         ImageSliderSection(postImageResourceIds = post.imageResourceIds, modifier = parentMaxWidth)
         ButtonsSection()
         if (post.likedAccountIds.isNotEmpty()) LikeInfoSection(post = post)
+        ContentBody(post = post)
+
     }
 }
 
@@ -172,4 +181,43 @@ private fun LikeInfoSection(post: Post) {
         style = MaterialTheme.typography.body2,
         modifier = Modifier.padding(horizontal = 8.dp)
     )
+}
+
+@Composable
+private fun ContentBody(post: Post) {
+    Text(
+        text = "${post.accountId} ${post.body}",
+        style = MaterialTheme.typography.body2,
+        modifier = Modifier.padding(horizontal = 8.dp)
+    )
+    Text(
+        text = stringResource(
+            id = R.string.instagram_home_post_item_content_body,
+            post.replies.size,
+        ),
+        style = MaterialTheme.typography.body2,
+        color = colorResource(id = R.color.lightGrey),
+        modifier = Modifier
+            .padding(top = 4.dp, start = 8.dp, end = 8.dp)
+            .clickable { }
+    )
+    Text(
+        text = convertTime(postedAt = post.postedAt),
+        style = MaterialTheme.typography.overline,
+        color = colorResource(id = R.color.lightGrey),
+        modifier = Modifier.padding(horizontal = 8.dp)
+    )
+}
+
+private fun convertTime(postedAt: String): String {
+    val date = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.JAPAN).parse(postedAt) ?: return ""
+    val now = Date()
+
+    var passedTimes = TimeUnit.MILLISECONDS.toHours(now.time - date.time)
+    var passedText = passedTimes.toString() + "時間前"
+    if (passedTimes > 24) {
+        passedTimes = TimeUnit.MILLISECONDS.toDays(now.time - date.time)
+        passedText = passedTimes.toString() + "日前"
+    }
+    return passedText
 }

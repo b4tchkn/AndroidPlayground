@@ -1,5 +1,6 @@
 package com.batch.compose_practice
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,6 +15,7 @@ import com.batch.compose_practice.ui.instagram_home.InstagramHomeScreen
 import com.batch.compose_practice.ui.main.HomeScreen
 import com.batch.compose_practice.ui.theme.ComposepracticeTheme
 
+@ExperimentalAnimationApi
 @Composable
 fun ComposePracticeApp() {
     val navController = rememberNavController()
