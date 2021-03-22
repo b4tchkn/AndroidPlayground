@@ -1,7 +1,5 @@
 package com.batch.compose_practice.ui.instagram_home
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border

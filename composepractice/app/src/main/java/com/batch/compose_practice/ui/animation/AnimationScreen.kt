@@ -1,13 +1,10 @@
 package com.batch.compose_practice.ui.animation
 
 import androidx.compose.animation.*
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -15,6 +12,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.batch.compose_practice.R
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 
 @ExperimentalAnimationApi
 @Composable
@@ -37,29 +36,55 @@ fun AnimationScreen(navController: NavController) {
             )
         }
     ) {
-//        val infiniteTransition = rememberInfiniteTransition()
-//        val color by infiniteTransition.animateColor(
-//            initialValue = Color.Red,
-//            targetValue = Color.Green,
-//            animationSpec = infiniteRepeatable(
-//                animation = tween(1000, easing = LinearEasing),
-//                repeatMode = RepeatMode.Reverse
-//            )
-//        )
-//
-//        Box(Modifier.fillMaxSize().background(color))
+        var visible by remember { mutableStateOf(true) }
+        val infiniteTransition = rememberInfiniteTransition()
+        val infiniteAnimState = infiniteTransition.animateFloat(
+            initialValue = 0f,
+            targetValue = 1f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(
+                    durationMillis = 500,
+                    easing = LinearEasing,
+                )
+            )
+        )
 
-        val visible by remember { mutableStateOf(true) }
-        AnimatedVisibility(
-            visible = visible,
-            enter = slideInVertically(
-                initialOffsetY = { -40 }
-            ) + expandVertically(
-                expandFrom = Alignment.Top
-            ) + fadeIn(initialAlpha = 0.3f),
-            exit = slideOutVertically() + shrinkVertically() + fadeOut()
+        val animValue by animateFloatAsState(
+            targetValue = if (visible) {
+                -50f
+            } else {
+                10f
+            },
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioHighBouncy,
+                stiffness = Spring.StiffnessMedium,
+            )
+        )
+
+        Button(
+            onClick = {
+                visible = !visible
+            }
         ) {
-            Text("Hello", Modifier.fillMaxWidth().height(200.dp))
         }
+
+        Icon(
+            modifier = Modifier
+                .offset(
+                    x = animValue.dp,
+                    y = 100.dp
+                ),
+            painter = painterResource(id = R.drawable.ic_baseline_favorite_border),
+            contentDescription = null
+        )
+        Icon(
+            modifier = Modifier
+                .offset(
+                    x = animValue.dp,
+                    y = 120.dp
+                ),
+            painter = painterResource(id = R.drawable.ic_baseline_favorite_border),
+            contentDescription = null
+        )
     }
 }
