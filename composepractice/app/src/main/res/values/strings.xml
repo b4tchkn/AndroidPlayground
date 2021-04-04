@@ -5,6 +5,7 @@
     <string name="home_count_up_section_title">Count up</string>
     <string name="home_instagram_home_section_title">Instagram Home</string>
     <string name="home_animation_section_title">Animation</string>
+    <string name="home_navigation_section_title">Navigation</string>
 
     <!--  count_up  -->
     <string name="count_up_title">Count up</string>
@@ -17,5 +18,9 @@
 
     <!--  animation  -->
     <string name="animation_title">Animation</string>
+
+    <!--  navigation  -->
+    <string name="navigation_title">Navigation</string>
+
 
 </resources>
