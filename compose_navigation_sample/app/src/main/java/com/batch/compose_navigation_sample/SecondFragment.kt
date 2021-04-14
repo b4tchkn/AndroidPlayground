@@ -18,7 +18,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.batch.compose_navigation_sample.ui.theme.ComposenavigationsampleTheme
 
-class MainFragment : Fragment() {
+class SecondFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +27,7 @@ class MainFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 ComposenavigationsampleTheme {
-                    Surface(color = Color.Green) {
+                    Surface(color = Color.Blue) {
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -35,24 +35,19 @@ class MainFragment : Fragment() {
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center,
                         ) {
-                            Text(text = "This is Compose on MainFragment")
-                            Button(onClick = { replaceFragment(SecondFragment()) }) {
-                                Text(text = "Go to SecondFragment")
+                            Text(text = "This is Compose on SecondFragment")
+                            Button(onClick = { popFragment() }) {
+                                Text(text = "Back to MainFragment")
                             }
                         }
                     }
                 }
             }
         }
-
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun popFragment() {
         val manager = parentFragmentManager
-
-        val transaction = manager.beginTransaction()
-        transaction.addToBackStack(null)
-        transaction.replace(R.id.container, fragment)
-        transaction.commit()
+        manager.popBackStack()
     }
 }
