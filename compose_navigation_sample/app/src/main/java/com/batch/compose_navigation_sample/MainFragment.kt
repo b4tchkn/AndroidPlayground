@@ -49,8 +49,11 @@ class MainFragment : Fragment() {
 
     private fun replaceFragment(fragment: Fragment) {
         val manager = parentFragmentManager
-
         val transaction = manager.beginTransaction()
+        val bundle = Bundle()
+        bundle.putSerializable("ARG_KEY", Sample(name = "Android"))
+        fragment.arguments = bundle
+
         transaction.addToBackStack(null)
         transaction.replace(R.id.container, fragment)
         transaction.commit()

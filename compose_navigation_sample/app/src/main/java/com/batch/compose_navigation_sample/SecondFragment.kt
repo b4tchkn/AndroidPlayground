@@ -24,6 +24,7 @@ class SecondFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val args = arguments?.getSerializable("ARG_KEY") as Sample
         return ComposeView(requireContext()).apply {
             setContent {
                 ComposenavigationsampleTheme {
@@ -35,7 +36,7 @@ class SecondFragment : Fragment() {
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center,
                         ) {
-                            Text(text = "This is Compose on SecondFragment")
+                            Text(text = "This is Compose on SecondFragment ${args.name}")
                             Button(onClick = { popFragment() }) {
                                 Text(text = "Back to MainFragment")
                             }
