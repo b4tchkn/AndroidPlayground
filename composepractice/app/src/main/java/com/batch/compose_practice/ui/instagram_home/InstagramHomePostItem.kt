@@ -1,9 +1,6 @@
 package com.batch.compose_practice.ui.instagram_home
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
@@ -16,11 +13,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.batch.compose_practice.R
 import com.batch.compose_practice.ui.theme.instagramGradient
 import com.batch.compose_practice.ui.theme.typography
@@ -99,14 +102,43 @@ private fun AccountInfoSection(post: Post) {
 private fun ImageSliderSection(postImageResourceIds: List<Int>) {
     val pagerState = rememberPagerState(pageCount = postImageResourceIds.size)
 
-    HorizontalPager(state = pagerState) {
-        Image(
+    Box {
+        HorizontalPager(state = pagerState) {
+            Image(
+                modifier = Modifier
+                    .height(400.dp)
+                    .fillMaxWidth(),
+                painter = painterResource(id = postImageResourceIds[it]),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+            )
+        }
+        if (postImageResourceIds.size > 1)
+            ImageCountBadge(current = pagerState.currentPage + 1, maxCount = pagerState.pageCount)
+    }
+}
+
+@Composable
+private fun ImageCountBadge(current: Int, maxCount: Int) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.End,
+    ) {
+        Text(
+            text = "$current/$maxCount",
             modifier = Modifier
-                .height(400.dp)
-                .fillMaxWidth(),
-            painter = painterResource(id = postImageResourceIds[it]),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
+                .width(36.dp)
+                .height(24.dp)
+                .background(
+                    Color.DarkGray.copy(alpha = 0.7f),
+                    shape = CircleShape,
+                )
+                .padding(vertical = 4.dp),
+            textAlign = TextAlign.Center,
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
         )
     }
 }
