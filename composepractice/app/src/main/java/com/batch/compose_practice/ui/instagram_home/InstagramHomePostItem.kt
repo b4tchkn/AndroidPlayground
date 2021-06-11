@@ -5,8 +5,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -19,7 +17,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -37,10 +34,9 @@ import java.util.concurrent.TimeUnit
 @ExperimentalPagerApi
 @Composable
 fun InstagramHomePostItem(post: Post) {
-    val parentMaxWidth = Modifier
     Column(modifier = Modifier.fillMaxWidth()) {
         AccountInfoSection(post = post)
-        ImageSliderSection(postImageResourceIds = post.imageResourceIds, modifier = parentMaxWidth)
+        ImageSliderSection(postImageResourceIds = post.imageResourceIds)
         ButtonsSection()
         if (post.likedAccountIds.isNotEmpty()) LikeInfoSection(post = post)
         ContentBody(post = post)
@@ -100,7 +96,7 @@ private fun AccountInfoSection(post: Post) {
 
 @ExperimentalPagerApi
 @Composable
-private fun ImageSliderSection(postImageResourceIds: List<Int>, modifier: Modifier) {
+private fun ImageSliderSection(postImageResourceIds: List<Int>) {
     val pagerState = rememberPagerState(pageCount = postImageResourceIds.size)
 
     HorizontalPager(state = pagerState) {
@@ -113,41 +109,6 @@ private fun ImageSliderSection(postImageResourceIds: List<Int>, modifier: Modifi
             contentScale = ContentScale.Crop,
         )
     }
-
-//    LazyRow {
-//        items(postImageResourceIds) { imageResourceId ->
-//            Image(
-//                modifier = modifier
-//                    .height(400.dp)
-//                    .width(100.dp),
-//                painter = painterResource(id = imageResourceId),
-//                contentDescription = null,
-//                contentScale = ContentScale.Crop
-//            )
-//        }
-//    }
-
-//
-//        item {
-//            Image(
-//                painter = painterResource(id = postImageResourceIds[1]),
-//                contentDescription = null,
-//                modifier = Modifier
-//                    .height(440.dp)
-//                    .fillMaxWidth(),
-//                contentScale = ContentScale.Crop,
-//            )
-//        }
-//        items(postImageResourceIds) {
-//            Image(
-//                painter = painterResource(id = it),
-//                contentDescription = null,
-//                modifier = Modifier
-//                    .height(440.dp)
-//                    .fillMaxWidth(),
-//                contentScale = ContentScale.Crop,
-//            )
-//        }
 }
 
 @Composable
