@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -26,10 +27,14 @@ import androidx.compose.ui.unit.dp
 import com.batch.compose_practice.R
 import com.batch.compose_practice.ui.theme.instagramGradient
 import com.batch.compose_practice.ui.theme.typography
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.rememberPagerState
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
+@ExperimentalPagerApi
 @Composable
 fun InstagramHomePostItem(post: Post) {
     val parentMaxWidth = Modifier
@@ -93,17 +98,35 @@ private fun AccountInfoSection(post: Post) {
     }
 }
 
+@ExperimentalPagerApi
 @Composable
 private fun ImageSliderSection(postImageResourceIds: List<Int>, modifier: Modifier) {
-    LazyRow {
-        items(postImageResourceIds) { imageResourceId ->
-            Image(
-                modifier = modifier.height(400.dp),
-                painter = painterResource(id = imageResourceId),
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
-        }
+    val pagerState = rememberPagerState(pageCount = postImageResourceIds.size)
+
+    HorizontalPager(state = pagerState) {
+        Image(
+            modifier = Modifier
+                .height(400.dp)
+                .fillMaxWidth(),
+            painter = painterResource(id = postImageResourceIds[it]),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+        )
+    }
+
+//    LazyRow {
+//        items(postImageResourceIds) { imageResourceId ->
+//            Image(
+//                modifier = modifier
+//                    .height(400.dp)
+//                    .width(100.dp),
+//                painter = painterResource(id = imageResourceId),
+//                contentDescription = null,
+//                contentScale = ContentScale.Crop
+//            )
+//        }
+//    }
+
 //
 //        item {
 //            Image(
@@ -125,7 +148,6 @@ private fun ImageSliderSection(postImageResourceIds: List<Int>, modifier: Modifi
 //                contentScale = ContentScale.Crop,
 //            )
 //        }
-    }
 }
 
 @Composable

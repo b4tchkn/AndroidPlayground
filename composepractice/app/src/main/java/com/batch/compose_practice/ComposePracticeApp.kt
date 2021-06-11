@@ -15,7 +15,9 @@ import com.batch.compose_practice.ui.local_composition.CompositionLocalViewModel
 import com.batch.compose_practice.ui.local_composition.compositionLocalViewModelProviderValue
 import com.batch.compose_practice.ui.main.HomeScreen
 import com.batch.compose_practice.ui.theme.ComposepracticeTheme
+import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalPagerApi
 @ExperimentalAnimationApi
 @Composable
 fun ComposePracticeApp() {

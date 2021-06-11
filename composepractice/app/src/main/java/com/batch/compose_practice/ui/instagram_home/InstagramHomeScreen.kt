@@ -13,7 +13,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.batch.compose_practice.R
+import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalPagerApi
 @Composable
 fun InstagramHomeScreen(navController: NavController) {
     val viewModel: InstagramHomeViewModel = viewModel()

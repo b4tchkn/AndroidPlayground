@@ -7,7 +7,6 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.batch.compose_practice.R
 import com.batch.compose_practice.ui.*
 
