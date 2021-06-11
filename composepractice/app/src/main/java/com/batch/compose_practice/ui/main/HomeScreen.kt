@@ -9,10 +9,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.batch.compose_practice.R
-import com.batch.compose_practice.ui.ANIMATION
-import com.batch.compose_practice.ui.COUNT_UP
-import com.batch.compose_practice.ui.INSTAGRAM_HOME
-import com.batch.compose_practice.ui.NAVIGATION
+import com.batch.compose_practice.ui.*
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -47,6 +44,12 @@ fun HomeScreen(navController: NavController) {
                 MainPracticeSectionItem(
                     sectionTitle = stringResource(id = R.string.home_navigation_section_title),
                     navigateTo = { navController.navigate(NAVIGATION) })
+            }
+            item {
+                MainPracticeSectionItem(
+                    sectionTitle = stringResource(id = R.string.composition_local_title),
+                    navigateTo = { navController.navigate(COMPOSITION_LOCAL) }
+                )
             }
         }
     }
