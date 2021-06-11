@@ -29,6 +29,7 @@ import com.batch.compose_practice.ui.theme.instagramGradient
 import com.batch.compose_practice.ui.theme.typography
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,10 +38,25 @@ import java.util.concurrent.TimeUnit
 @ExperimentalPagerApi
 @Composable
 fun InstagramHomePostItem(post: Post) {
+    val pagerState = rememberPagerState(pageCount = post.imageResourceIds.size)
     Column(modifier = Modifier.fillMaxWidth()) {
         AccountInfoSection(post = post)
-        ImageSliderSection(postImageResourceIds = post.imageResourceIds)
-        ButtonsSection()
+        ImageSliderSection(pagerState = pagerState, postImageResourceIds = post.imageResourceIds)
+        Box(modifier = Modifier.fillMaxWidth()) {
+            ButtonsSection()
+            if (pagerState.pageCount > 1)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp),
+                    horizontalArrangement = Arrangement.Center,
+                ) {
+                    Indicators(
+                        currentPosition = pagerState.currentPage,
+                        contentCount = pagerState.pageCount,
+                    )
+                }
+        }
         if (post.likedAccountIds.isNotEmpty()) LikeInfoSection(post = post)
         ContentBody(post = post)
 
@@ -99,22 +115,25 @@ private fun AccountInfoSection(post: Post) {
 
 @ExperimentalPagerApi
 @Composable
-private fun ImageSliderSection(postImageResourceIds: List<Int>) {
-    val pagerState = rememberPagerState(pageCount = postImageResourceIds.size)
-
-    Box {
-        HorizontalPager(state = pagerState) {
-            Image(
-                modifier = Modifier
-                    .height(400.dp)
-                    .fillMaxWidth(),
-                painter = painterResource(id = postImageResourceIds[it]),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-            )
+private fun ImageSliderSection(pagerState: PagerState, postImageResourceIds: List<Int>) {
+    Column {
+        Box {
+            HorizontalPager(state = pagerState) {
+                Image(
+                    modifier = Modifier
+                        .height(400.dp)
+                        .fillMaxWidth(),
+                    painter = painterResource(id = postImageResourceIds[it]),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                )
+            }
+            if (postImageResourceIds.size > 1)
+                ImageCountBadge(
+                    current = pagerState.currentPage + 1,
+                    maxCount = pagerState.pageCount
+                )
         }
-        if (postImageResourceIds.size > 1)
-            ImageCountBadge(current = pagerState.currentPage + 1, maxCount = pagerState.pageCount)
     }
 }
 
@@ -173,6 +192,23 @@ private fun ButtonsSection() {
             Icon(
                 painter = painterResource(id = R.drawable.ic_baseline_bookmark_border),
                 contentDescription = null
+            )
+        }
+    }
+}
+
+@Composable
+private fun Indicators(currentPosition: Int, contentCount: Int) {
+    Row(
+        modifier = Modifier.width((12 * contentCount).dp),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+    ) {
+        repeat(contentCount) {
+            Box(
+                modifier = Modifier
+                    .size(6.dp)
+                    .clip(shape = CircleShape)
+                    .background(color = if (currentPosition == it) Color(0xFF4382D3) else Color.Gray),
             )
         }
     }
