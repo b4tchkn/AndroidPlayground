@@ -1,5 +1,6 @@
 package com.batch.compose_practice.ui.instagram_home
 
+import android.util.Log
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
@@ -20,6 +21,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 fun InstagramHomeScreen(navController: NavController) {
     val viewModel: InstagramHomeViewModel = viewModel()
     val posts by viewModel.posts.collectAsState()
+    val stories by viewModel.stories.collectAsState()
     Scaffold(
         topBar = {
             val title = stringResource(id = R.string.home_instagram_home_section_title)
@@ -39,9 +41,11 @@ fun InstagramHomeScreen(navController: NavController) {
         },
     ) {
         viewModel.getPosts()
+        viewModel.getStories()
+        Log.d("aaaaa", stories.size.toString())
         LazyColumn {
             item {
-                InstagramHomeStorySection()
+                InstagramHomeStorySection(stories = stories)
             }
             item {
                 Divider(
