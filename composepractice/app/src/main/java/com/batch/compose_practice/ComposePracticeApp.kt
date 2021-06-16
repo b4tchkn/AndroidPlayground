@@ -1,6 +1,7 @@
 package com.batch.compose_practice
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
@@ -14,9 +15,11 @@ import com.batch.compose_practice.ui.local_composition.CompositionLocalScreen
 import com.batch.compose_practice.ui.local_composition.CompositionLocalViewModel
 import com.batch.compose_practice.ui.local_composition.compositionLocalViewModelProviderValue
 import com.batch.compose_practice.ui.main.HomeScreen
+import com.batch.compose_practice.ui.tapple_home.TappleHomeScreen
 import com.batch.compose_practice.ui.theme.ComposepracticeTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalMaterialApi
 @ExperimentalPagerApi
 @ExperimentalAnimationApi
 @Composable
@@ -47,6 +50,9 @@ fun ComposePracticeApp() {
                 ) {
                     CompositionLocalScreen(navController = navController)
                 }
+            }
+            composable(TAPPLE_HOME) {
+                TappleHomeScreen()
             }
         }
     }

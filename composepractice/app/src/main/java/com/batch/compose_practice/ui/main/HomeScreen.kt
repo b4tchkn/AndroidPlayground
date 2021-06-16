@@ -50,6 +50,12 @@ fun HomeScreen(navController: NavController) {
                     navigateTo = { navController.navigate(COMPOSITION_LOCAL) }
                 )
             }
+            item {
+                MainPracticeSectionItem(
+                    sectionTitle = "TappleHome",
+                    navigateTo = { navController.navigate(TAPPLE_HOME) }
+                )
+            }
         }
     }
 }
