@@ -59,7 +59,6 @@ fun InstagramHomePostItem(post: Post) {
         }
         if (post.likedAccountIds.isNotEmpty()) LikeInfoSection(post = post)
         ContentBody(post = post)
-
     }
 }
 
@@ -116,24 +115,22 @@ private fun AccountInfoSection(post: Post) {
 @ExperimentalPagerApi
 @Composable
 private fun ImageSliderSection(pagerState: PagerState, postImageResourceIds: List<Int>) {
-    Column {
-        Box {
-            HorizontalPager(state = pagerState) {
-                Image(
-                    modifier = Modifier
-                        .height(400.dp)
-                        .fillMaxWidth(),
-                    painter = painterResource(id = postImageResourceIds[it]),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                )
-            }
-            if (postImageResourceIds.size > 1)
-                ImageCountBadge(
-                    current = pagerState.currentPage + 1,
-                    maxCount = pagerState.pageCount
-                )
+    Box {
+        HorizontalPager(state = pagerState) {
+            Image(
+                modifier = Modifier
+                    .height(400.dp)
+                    .fillMaxWidth(),
+                painter = painterResource(id = postImageResourceIds[it]),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+            )
         }
+        if (postImageResourceIds.size > 1)
+            ImageCountBadge(
+                current = pagerState.currentPage + 1,
+                maxCount = pagerState.pageCount
+            )
     }
 }
 
