@@ -22,6 +22,9 @@
     <!--  navigation  -->
     <string name="navigation_title">Navigation</string>
 
-    <!--  navigation  -->
+    <!--  composition_local  -->
     <string name="composition_local_title">CompositionLocal</string>
+
+    <!--  android_view_sample  -->
+    <string name="android_view_sample_title">AndroidViewSample</string>
 </resources>

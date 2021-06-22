@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.batch.compose_practice.ui.*
+import com.batch.compose_practice.ui.android_view_sample.AndroidViewSampleScreen
 import com.batch.compose_practice.ui.animation.AnimationScreen
 import com.batch.compose_practice.ui.count_up.CountUpScreen
 import com.batch.compose_practice.ui.instagram_home.InstagramHomeScreen
@@ -53,6 +54,9 @@ fun ComposePracticeApp() {
             }
             composable(TAPPLE_HOME) {
                 TappleHomeScreen()
+            }
+            composable(ANDROID_VIEW_SAMPLE) {
+                AndroidViewSampleScreen(navController = navController)
             }
         }
     }

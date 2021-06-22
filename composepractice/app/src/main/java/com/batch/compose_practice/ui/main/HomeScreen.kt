@@ -56,6 +56,12 @@ fun HomeScreen(navController: NavController) {
                     navigateTo = { navController.navigate(TAPPLE_HOME) }
                 )
             }
+            item {
+                MainPracticeSectionItem(
+                    sectionTitle = stringResource(id = R.string.android_view_sample_title),
+                    navigateTo = { navController.navigate(ANDROID_VIEW_SAMPLE) }
+                )
+            }
         }
     }
 }
