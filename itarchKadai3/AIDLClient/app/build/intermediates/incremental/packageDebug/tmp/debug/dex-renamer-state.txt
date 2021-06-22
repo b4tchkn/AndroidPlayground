@@ -1,7 +1,0 @@
-#Tue Dec 03 20:50:30 JST 2019
-base.0=/Users/batch/AndroidStudioProjects/batchAndroidPlayground/itarchKadai3/AIDLClient/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
-path.1=classes.dex
-renamed.1=classes2.dex
-path.0=classes.dex
-renamed.0=classes.dex
-base.1=/Users/batch/AndroidStudioProjects/batchAndroidPlayground/itarchKadai3/AIDLClient/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
