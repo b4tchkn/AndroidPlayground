@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import com.batch.compose_practice.R
+import com.google.android.material.button.MaterialButton
 
 @Composable
 fun AndroidViewSampleScreen(navController: NavController) {
@@ -47,6 +48,16 @@ fun AndroidViewSampleScreen(navController: NavController) {
             }
         }
 
+        val customButton = remember {
+            MaterialButton(context).apply {
+                text = "これはぼたん"
+                cornerRadius = 100
+                setOnClickListener {
+                    // なんかする
+                }
+            }
+        }
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -65,6 +76,8 @@ fun AndroidViewSampleScreen(navController: NavController) {
             )
 
             AndroidView({ customTextView })
+
+            AndroidView({ customButton })
         }
     }
 }
