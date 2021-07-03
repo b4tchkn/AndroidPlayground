@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Teal200.H1.Bold" parent="Teal200.H1">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Purple200.H1.Bold" parent="Purple200.H1">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Teal200.H1" parent="H1">
+        <item name="android:textColor">@color/teal_200</item>
+    </style>
+
+    <style name="Purple200.H1" parent="H1">
+        <item name="android:textColor">@color/purple_200</item>
+    </style>
+
+    <style name="H1" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+    </style>
+</resources>
