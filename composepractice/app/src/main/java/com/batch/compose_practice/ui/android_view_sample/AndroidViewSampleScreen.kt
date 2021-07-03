@@ -1,9 +1,13 @@
 package com.batch.compose_practice.ui.android_view_sample
 
+import android.util.Log
+import android.view.View
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -13,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import com.batch.compose_practice.R
@@ -48,16 +51,6 @@ fun AndroidViewSampleScreen(navController: NavController) {
             }
         }
 
-        val customButton = remember {
-            MaterialButton(context).apply {
-                text = "これはぼたん"
-                cornerRadius = 100
-                setOnClickListener {
-                    // なんかする
-                }
-            }
-        }
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -77,7 +70,35 @@ fun AndroidViewSampleScreen(navController: NavController) {
 
             AndroidView({ customTextView })
 
-            AndroidView({ customButton })
+            AndroidViewMaterialButton(
+                label = "これはボタン",
+                labelColor = context.getColor(R.color.teal_700),
+                backgroundColor = context.getColor(R.color.lightGrey),
+            ) {
+                // なんかする
+                Log.d("AndroidViewSample", "Click Android View Material Button")
+            }
         }
     }
+}
+
+@Composable
+private fun AndroidViewMaterialButton(
+    label: String,
+    @ColorInt labelColor: Int,
+    @ColorInt backgroundColor: Int,
+    onClick: () -> Unit,
+) {
+    AndroidView(
+        factory = { context ->
+            MaterialButton(context).apply {
+                text = label
+                setTextColor(labelColor)
+                setBackgroundColor(backgroundColor)
+                setOnClickListener {
+                    onClick()
+                }
+            }
+        }
+    )
 }
