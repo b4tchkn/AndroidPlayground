@@ -1,17 +1,27 @@
 package com.batch.compose_practice.ui.tiktok
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.batch.compose_practice.R
 import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.VerticalPager
@@ -28,28 +38,123 @@ fun TikTokScreen() {
     )
 
     val pagerState = rememberPagerState(pageCount = images.size)
+    var musicTextOffset by remember {
+        mutableStateOf(0f)
+    }
 
-    Box(
+    VerticalPager(
+        state = pagerState,
         modifier = Modifier
             .fillMaxSize()
             .clip(RoundedCornerShape(16.dp))
     ) {
-        VerticalPager(state = pagerState) {
-            Image(
-                modifier = Modifier.fillMaxSize(),
-                painter = rememberCoilPainter(request = images[it]),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
+        Image(
+            modifier = Modifier.fillMaxSize(),
+            painter = rememberCoilPainter(request = images[it]),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+        )
+        ActionButtons()
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 16.dp, bottom = 16.dp, end = 80.dp),
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.Start,
+        ) {
+            Text(
+                text = "@アカウント名",
+                style = TextStyle(
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp
+                )
             )
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.End,
-                verticalArrangement = Arrangement.Bottom,
-            ) {
-                Text(text = "aaa")
-                Text(text = "aaa")
-                Text(text = "ああああ")
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "説明説明説明説明説明説明説明説明説明説明",
+                style = TextStyle(
+                    color = Color.White,
+                    fontSize = 16.sp
+                )
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_baseline_music_note),
+                    contentDescription = null,
+                )
+                Text(
+                    modifier = Modifier
+                        .width(180.dp)
+                        .horizontalScroll(rememberScrollState()),
+                    text = "曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名",
+                    style = TextStyle(
+                        color = Color.White,
+                        fontSize = 16.sp
+                    ),
+                    maxLines = 1,
+                )
             }
+        }
+    }
+}
+
+@Composable
+private fun ActionButtons() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(end = 16.dp, bottom = 48.dp),
+        horizontalAlignment = Alignment.End,
+        verticalArrangement = Arrangement.Bottom,
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            IconButton(
+                modifier = Modifier.size(40.dp),
+                onClick = {}
+            ) {
+                Image(
+                    modifier = Modifier.size(40.dp),
+                    painter = painterResource(id = R.drawable.ic_baseline_favorite),
+                    contentDescription = null,
+                )
+            }
+            Text(text = "13.3k", style = TextStyle(color = Color.White, fontSize = 14.sp))
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            IconButton(
+                modifier = Modifier.size(40.dp),
+                onClick = {}
+            ) {
+                Image(
+                    modifier = Modifier.size(40.dp),
+                    painter = painterResource(id = R.drawable.ic_baseline_mode_comment),
+                    contentDescription = null,
+                )
+            }
+            Text(text = "3.3k", style = TextStyle(color = Color.White, fontSize = 14.sp))
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            IconButton(
+                modifier = Modifier.size(40.dp),
+                onClick = {}
+            ) {
+                Image(
+                    modifier = Modifier.size(40.dp),
+                    painter = painterResource(id = R.drawable.ic_baseline_reply),
+                    contentDescription = null,
+                )
+            }
+            Text(text = "1.3k", style = TextStyle(color = Color.White, fontSize = 14.sp))
         }
     }
 }
