@@ -62,6 +62,12 @@ fun HomeScreen(navController: NavController) {
                     navigateTo = { navController.navigate(ANDROID_VIEW_SAMPLE) }
                 )
             }
+            item {
+                MainPracticeSectionItem(
+                    sectionTitle = stringResource(id = R.string.tiktok_title),
+                    navigateTo = { navController.navigate(TIKTOK) }
+                )
+            }
         }
     }
 }

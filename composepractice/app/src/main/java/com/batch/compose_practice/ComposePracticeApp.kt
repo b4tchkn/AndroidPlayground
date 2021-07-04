@@ -18,6 +18,7 @@ import com.batch.compose_practice.ui.local_composition.compositionLocalViewModel
 import com.batch.compose_practice.ui.main.HomeScreen
 import com.batch.compose_practice.ui.tapple_home.TappleHomeScreen
 import com.batch.compose_practice.ui.theme.ComposepracticeTheme
+import com.batch.compose_practice.ui.tiktok.TikTokScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalMaterialApi
@@ -57,6 +58,9 @@ fun ComposePracticeApp() {
             }
             composable(ANDROID_VIEW_SAMPLE) {
                 AndroidViewSampleScreen(navController = navController)
+            }
+            composable(TIKTOK) {
+                TikTokScreen()
             }
         }
     }

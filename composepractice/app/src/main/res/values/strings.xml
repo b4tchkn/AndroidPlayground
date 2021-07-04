@@ -27,4 +27,7 @@
 
     <!--  android_view_sample  -->
     <string name="android_view_sample_title">AndroidViewSample</string>
+
+    <!--  android_view_sample  -->
+    <string name="tiktok_title">TikTok</string>
 </resources>
