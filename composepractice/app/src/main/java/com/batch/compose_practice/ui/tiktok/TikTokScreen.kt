@@ -1,19 +1,20 @@
 package com.batch.compose_practice.ui.tiktok
 
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.rememberScrollableState
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -38,10 +39,29 @@ fun TikTokScreen() {
     )
 
     val pagerState = rememberPagerState(pageCount = images.size)
-    var musicTextOffset by remember {
-        mutableStateOf(0f)
+    val animateRotation = remember {
+        Animatable(0f)
+    }
+    val musicTextScrollState = rememberScrollState()
+
+    LaunchedEffect("repeatable") {
+        animateRotation.animateTo(
+            360f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(3000, easing = LinearEasing)
+            )
+        )
     }
 
+    LaunchedEffect(key1 = "horizontal") {
+        musicTextScrollState.animateScrollTo(
+            musicTextScrollState.maxValue,
+            animationSpec = infiniteRepeatable(
+                animation = tween(8000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            )
+        )
+    }
     VerticalPager(
         state = pagerState,
         modifier = Modifier
@@ -54,7 +74,7 @@ fun TikTokScreen() {
             contentDescription = null,
             contentScale = ContentScale.Crop,
         )
-        ActionButtons()
+        ActionButtons(animateRotation = animateRotation)
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -87,8 +107,8 @@ fun TikTokScreen() {
                 Text(
                     modifier = Modifier
                         .width(180.dp)
-                        .horizontalScroll(rememberScrollState()),
-                    text = "曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名",
+                        .horizontalScroll(musicTextScrollState, enabled = false),
+                    text = "曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名。",
                     style = TextStyle(
                         color = Color.White,
                         fontSize = 16.sp
@@ -101,7 +121,7 @@ fun TikTokScreen() {
 }
 
 @Composable
-private fun ActionButtons() {
+private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -114,7 +134,9 @@ private fun ActionButtons() {
         ) {
             IconButton(
                 modifier = Modifier.size(40.dp),
-                onClick = {}
+                onClick = {
+                    // do nothing
+                }
             ) {
                 Image(
                     modifier = Modifier.size(40.dp),
@@ -130,7 +152,9 @@ private fun ActionButtons() {
         ) {
             IconButton(
                 modifier = Modifier.size(40.dp),
-                onClick = {}
+                onClick = {
+                    // do nothing
+                }
             ) {
                 Image(
                     modifier = Modifier.size(40.dp),
@@ -146,7 +170,9 @@ private fun ActionButtons() {
         ) {
             IconButton(
                 modifier = Modifier.size(40.dp),
-                onClick = {}
+                onClick = {
+                    // do nothing
+                }
             ) {
                 Image(
                     modifier = Modifier.size(40.dp),
@@ -156,5 +182,13 @@ private fun ActionButtons() {
             }
             Text(text = "1.3k", style = TextStyle(color = Color.White, fontSize = 14.sp))
         }
+        Spacer(modifier = Modifier.height(16.dp))
+        Image(
+            modifier = Modifier.rotate(animateRotation.value),
+            painter = painterResource(
+                id = R.drawable.ic_baseline_arrow_back
+            ),
+            contentDescription = null,
+        )
     }
 }
