@@ -2,7 +2,9 @@ package com.batch.compose_practice.ui.tiktok
 
 import android.content.Context
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.MediaItem
@@ -14,7 +16,7 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 
 @Composable
-fun TikTokPlayer(context: Context, url: String) {
+fun TikTokPlayer(modifier: Modifier, context: Context, url: String, selected: Boolean) {
     val mediaItem = MediaItem.fromUri("asset:///$url")
 
     val tiktokPlayer = remember {
@@ -28,13 +30,24 @@ fun TikTokPlayer(context: Context, url: String) {
                 this.setMediaSource(mediaSource)
             }
     }
+    tiktokPlayer.prepare()
     tiktokPlayer.videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
     tiktokPlayer.repeatMode = Player.REPEAT_MODE_ONE
-    AndroidView({
-        PlayerView(it).apply {
-            useController = false
-            player = tiktokPlayer
-            resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
+    AndroidView(
+        modifier = modifier,
+        factory = {
+            PlayerView(it).apply {
+                useController = false
+                player = tiktokPlayer
+                resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
+            }
         }
-    })
+    )
+    tiktokPlayer.playWhenReady = true
+
+    DisposableEffect(url) {
+        onDispose {
+            tiktokPlayer.release()
+        }
+    }
 }
