@@ -3,6 +3,7 @@ package com.batch.compose_practice.ui.tiktok
 import android.util.Log
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -53,7 +54,6 @@ fun TikTokScreen() {
             .clip(RoundedCornerShape(16.dp))
     ) {
         TikTokPlayer(
-            modifier = Modifier.fillMaxSize(),
             context,
             url = posts[it].video,
             selected = pagerState.currentPage == it
