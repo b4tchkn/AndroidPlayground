@@ -1,5 +1,6 @@
 package com.batch.compose_practice.ui.tiktok
 
+import android.util.Log
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.horizontalScroll
@@ -10,6 +11,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -169,6 +171,7 @@ private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>)
 
 @Composable
 private fun ScrollableMusicText(text: String) {
+    val newText = remember { mutableStateOf(text) }
     val scrollState = rememberScrollState()
 
     LaunchedEffect(key1 = text) {
@@ -181,15 +184,15 @@ private fun ScrollableMusicText(text: String) {
         )
     }
 
-//    if (scrollState.value > scrollState.maxValue * 0.75) {
-//        Log.d("aaaaaaaaa ScrollState", "今！ ${scrollState.value}")
-//    }
+    if (scrollState.value > scrollState.maxValue * 0.75) {
+        newText.value += text
+    }
 
     Text(
         modifier = Modifier
             .width(180.dp)
             .horizontalScroll(scrollState, enabled = false),
-        text = text,
+        text = newText.value,
         style = TextStyle(
             color = Color.White,
             fontSize = 16.sp
