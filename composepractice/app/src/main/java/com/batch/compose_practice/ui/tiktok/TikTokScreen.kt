@@ -11,13 +11,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCompositionContext
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -25,7 +23,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.batch.compose_practice.R
-import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.VerticalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -33,39 +30,17 @@ import com.google.accompanist.pager.rememberPagerState
 @ExperimentalPagerApi
 @Composable
 fun TikTokScreen() {
-//    val images = listOf(
-//        "https://instagrammernewsimg.s3.ap-northeast-1-ntt.wasabisys.com/B-uBwCoB_ie",
-//        "https://pbs.twimg.com/profile_images/643873688132128769/bfgPCB1l_400x400.jpg",
-//        "https://instagrammernewsimg.s3.ap-northeast-1-ntt.wasabisys.com/B3uVixCHf5t",
-//        "https://247lingerie.co/Contents/ProductImages/0/3g90196_L.jpg",
-//    )
-    val videos = listOf(
-        "t1.mp4",
-        "t2.mp4",
-        "t3.mp4",
-    )
+    val posts = Post.data
     val context = LocalContext.current
-    val pagerState = rememberPagerState(pageCount = videos.size)
+    val pagerState = rememberPagerState(pageCount = posts.size)
     val animateRotation = remember {
         Animatable(0f)
     }
-    val musicTextScrollState = rememberScrollState()
-
-    LaunchedEffect("repeatable") {
+    LaunchedEffect(pagerState.currentPage) {
         animateRotation.animateTo(
             360f,
             animationSpec = infiniteRepeatable(
                 animation = tween(3000, easing = LinearEasing)
-            )
-        )
-    }
-
-    LaunchedEffect(key1 = "horizontal") {
-        musicTextScrollState.animateScrollTo(
-            musicTextScrollState.maxValue,
-            animationSpec = infiniteRepeatable(
-                animation = tween(8000, easing = LinearEasing),
-                repeatMode = RepeatMode.Restart,
             )
         )
     }
@@ -78,15 +53,9 @@ fun TikTokScreen() {
         TikTokPlayer(
             modifier = Modifier.fillMaxSize(),
             context,
-            url = videos[it],
+            url = posts[it].video,
             selected = pagerState.currentPage == it
         )
-//        Image(
-//            modifier = Modifier.fillMaxSize(),
-//            painter = rememberCoilPainter(request = images[it]),
-//            contentDescription = null,
-//            contentScale = ContentScale.Crop,
-//        )
         ActionButtons(animateRotation = animateRotation)
         Column(
             modifier = Modifier
@@ -96,7 +65,7 @@ fun TikTokScreen() {
             horizontalAlignment = Alignment.Start,
         ) {
             Text(
-                text = "@アカウント名",
+                text = "@${posts[it].accountId}",
                 style = TextStyle(
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
@@ -105,7 +74,7 @@ fun TikTokScreen() {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "説明説明説明説明説明説明説明説明説明説明",
+                text = posts[it].description,
                 style = TextStyle(
                     color = Color.White,
                     fontSize = 16.sp
@@ -117,16 +86,8 @@ fun TikTokScreen() {
                     painter = painterResource(id = R.drawable.ic_baseline_music_note),
                     contentDescription = null,
                 )
-                Text(
-                    modifier = Modifier
-                        .width(180.dp)
-                        .horizontalScroll(musicTextScrollState, enabled = false),
-                    text = "曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名曲名。",
-                    style = TextStyle(
-                        color = Color.White,
-                        fontSize = 16.sp
-                    ),
-                    maxLines = 1,
+                ScrollableMusicText(
+                    text = posts[it].bgmTitle,
                 )
             }
         }
@@ -204,4 +165,35 @@ private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>)
             contentDescription = null,
         )
     }
+}
+
+@Composable
+private fun ScrollableMusicText(text: String) {
+    val scrollState = rememberScrollState()
+
+    LaunchedEffect(key1 = text) {
+        scrollState.animateScrollTo(
+            scrollState.maxValue,
+            animationSpec = infiniteRepeatable(
+                animation = tween(8000, easing = LinearEasing),
+                repeatMode = RepeatMode.Restart,
+            )
+        )
+    }
+
+//    if (scrollState.value > scrollState.maxValue * 0.75) {
+//        Log.d("aaaaaaaaa ScrollState", "今！ ${scrollState.value}")
+//    }
+
+    Text(
+        modifier = Modifier
+            .width(180.dp)
+            .horizontalScroll(scrollState, enabled = false),
+        text = text,
+        style = TextStyle(
+            color = Color.White,
+            fontSize = 16.sp
+        ),
+        maxLines = 1,
+    )
 }
