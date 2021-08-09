@@ -43,7 +43,7 @@ fun TikTokPlayer(modifier: Modifier, context: Context, url: String, selected: Bo
             }
         }
     )
-    tiktokPlayer.playWhenReady = true
+    tiktokPlayer.playWhenReady = selected
 
     DisposableEffect(url) {
         onDispose {
