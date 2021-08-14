@@ -3,17 +3,13 @@ package com.batch.compose_practice.ui.tiktok
 import android.util.Log
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -62,7 +58,7 @@ fun TikTokScreen() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 16.dp, bottom = 16.dp, end = 80.dp),
+                .padding(start = 16.dp, bottom = 16.dp, end = 64.dp),
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.Start,
         ) {
@@ -88,9 +84,10 @@ fun TikTokScreen() {
                     painter = painterResource(id = R.drawable.ic_baseline_music_note),
                     contentDescription = null,
                 )
-                ScrollableMusicText(
-                    text = posts[it].bgmTitle,
-                )
+                if (pagerState.currentPage == it)
+                    ScrollableMusicText(
+                        text = posts[it].bgmTitle,
+                    )
             }
         }
     }
@@ -170,29 +167,33 @@ private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>)
 }
 
 @Composable
-private fun ScrollableMusicText(text: String) {
-    val newText = remember { mutableStateOf(text) }
+private fun ScrollableMusicText(
+    text: String,
+) {
+    var newText by remember { mutableStateOf(text) }
     val scrollState = rememberScrollState()
 
-    LaunchedEffect(key1 = text) {
+    LaunchedEffect(newText) {
+        Log.d("TikTok", "LaunchedEffect $newText")
+        Log.d("TikTok", "LaunchedEffect ${scrollState.maxValue}")
         scrollState.animateScrollTo(
             scrollState.maxValue,
             animationSpec = infiniteRepeatable(
-                animation = tween(8000, easing = LinearEasing),
+                animation = tween(newText.length * 200, easing = LinearEasing),
                 repeatMode = RepeatMode.Restart,
             )
         )
     }
 
     if (scrollState.value > scrollState.maxValue * 0.75) {
-        newText.value += text
+        newText += text
     }
 
     Text(
         modifier = Modifier
             .width(180.dp)
             .horizontalScroll(scrollState, enabled = false),
-        text = newText.value,
+        text = newText,
         style = TextStyle(
             color = Color.White,
             fontSize = 16.sp
