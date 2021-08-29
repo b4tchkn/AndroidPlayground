@@ -13,12 +13,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.batch.compose_practice.R
@@ -168,36 +171,52 @@ private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>)
 
 @Composable
 private fun ScrollableMusicText(
-    text: String,
+    text: String
 ) {
-    var newText by remember { mutableStateOf(text) }
-    val scrollState = rememberScrollState()
-
-    LaunchedEffect(newText) {
-        Log.d("TikTok", "LaunchedEffect $newText")
-        Log.d("TikTok", "LaunchedEffect ${scrollState.maxValue}")
-        scrollState.animateScrollTo(
-            scrollState.maxValue,
-            animationSpec = infiniteRepeatable(
-                animation = tween(newText.length * 200, easing = LinearEasing),
-                repeatMode = RepeatMode.Restart,
+    val offset = remember {
+        Animatable(0F)
+    }
+    var textWidth by remember {
+        mutableStateOf(0)
+    }
+    LaunchedEffect(textWidth) {
+        offset.animateTo(
+            textWidth.toFloat(),
+            infiniteRepeatable(
+                tween(
+                    durationMillis = textWidth * 10,
+                    easing = LinearEasing
+                )
             )
         )
     }
 
-    if (scrollState.value > scrollState.maxValue * 0.75) {
-        newText += text
-    }
+    Layout(
+        content = {
+            repeat(2) {
+                Text(
+                    text = text,
+                    style = TextStyle(
+                        color = Color.White, fontSize = 16.sp,
+                    )
+                )
+            }
+        },
+        modifier = Modifier.clipToBounds()
+    ) { measurables, constraints ->
+        val childConstraint = Constraints()
+        val placeable1 = measurables[0].measure(childConstraint)
+        val placeable2 = measurables[1].measure(childConstraint)
 
-    Text(
-        modifier = Modifier
-            .width(180.dp)
-            .horizontalScroll(scrollState, enabled = false),
-        text = newText,
-        style = TextStyle(
-            color = Color.White,
-            fontSize = 16.sp
-        ),
-        maxLines = 1,
-    )
+        textWidth = placeable1.width
+
+        layout(constraints.maxWidth, placeable1.height) {
+            if (placeable1.width > constraints.maxWidth) {
+                placeable1.place(-offset.value.toInt(), 0)
+                placeable2.place(placeable1.width + -offset.value.toInt(), 0)
+            } else {
+                placeable1.place(0, 0)
+            }
+        }
+    }
 }
