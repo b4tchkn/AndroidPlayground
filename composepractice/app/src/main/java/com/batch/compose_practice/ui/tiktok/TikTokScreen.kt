@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
@@ -16,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -25,6 +27,7 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.batch.compose_practice.R
+import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.VerticalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -57,7 +60,7 @@ fun TikTokScreen() {
             url = posts[it].video,
             selected = pagerState.currentPage == it
         )
-        ActionButtons(animateRotation = animateRotation)
+        ActionButtons(post = posts[it], animateRotation = animateRotation)
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -97,7 +100,7 @@ fun TikTokScreen() {
 }
 
 @Composable
-private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>) {
+private fun ActionButtons(post: Post, animateRotation: Animatable<Float, AnimationVector1D>) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -120,7 +123,7 @@ private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>)
                     contentDescription = null,
                 )
             }
-            Text(text = "13.3k", style = TextStyle(color = Color.White, fontSize = 14.sp))
+            Text(text = post.likeCounts, style = TextStyle(color = Color.White, fontSize = 14.sp))
         }
         Spacer(modifier = Modifier.height(16.dp))
         Column(
@@ -138,7 +141,10 @@ private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>)
                     contentDescription = null,
                 )
             }
-            Text(text = "3.3k", style = TextStyle(color = Color.White, fontSize = 14.sp))
+            Text(
+                text = post.commentCounts,
+                style = TextStyle(color = Color.White, fontSize = 14.sp)
+            )
         }
         Spacer(modifier = Modifier.height(16.dp))
         Column(
@@ -156,14 +162,15 @@ private fun ActionButtons(animateRotation: Animatable<Float, AnimationVector1D>)
                     contentDescription = null,
                 )
             }
-            Text(text = "1.3k", style = TextStyle(color = Color.White, fontSize = 14.sp))
+            Text(text = post.shareCounts, style = TextStyle(color = Color.White, fontSize = 14.sp))
         }
         Spacer(modifier = Modifier.height(16.dp))
         Image(
-            modifier = Modifier.rotate(animateRotation.value),
-            painter = painterResource(
-                id = R.drawable.ic_baseline_arrow_back
-            ),
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
+                .rotate(animateRotation.value),
+            painter = rememberCoilPainter(request = post.bgmJacket),
             contentDescription = null,
         )
     }
