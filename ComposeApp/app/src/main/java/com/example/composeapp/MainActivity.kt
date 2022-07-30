@@ -48,7 +48,7 @@ fun SamplePageCoordinator(
         val state by sampleState.state.observeAsState()
         val state2 by sampleState2.state.observeAsState()
 
-        if (state?.data == null && state2?.data == null) {
+        if (state?.data == null || state2?.data == null) {
             CircularProgressIndicator()
         } else {
             Column {
