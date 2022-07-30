@@ -2,13 +2,13 @@ package com.example.composeapp.state
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.composeapp.domain.SampleUseCase
+import com.example.composeapp.domain.SampleUseCase2
 import com.example.composeapp.model.SampleModel
 import com.example.composeapp.model.UiModel
 import kotlinx.coroutines.launch
 
-class SampleState(
-    private val useCase: SampleUseCase = SampleUseCase(),
+class SampleState2(
+    private val useCase: SampleUseCase2 = SampleUseCase2(),
     override val state: MutableLiveData<UiModel<SampleModel>> = MutableLiveData()
 ) : AtomState<SampleModel>() {
     init {
