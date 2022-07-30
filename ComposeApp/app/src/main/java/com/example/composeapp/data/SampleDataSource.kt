@@ -11,4 +11,11 @@ class SampleDataSource {
             description = "ディスクリプション"
         )
     }
+
+    suspend fun getSample2(): SampleModel = withContext(Dispatchers.IO) {
+        SampleModel(
+            title = "タイトル2",
+            description = "ディスクリプション2"
+        )
+    }
 }
