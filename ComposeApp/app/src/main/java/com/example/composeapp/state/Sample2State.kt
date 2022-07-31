@@ -19,7 +19,9 @@ class Sample2State(
     }
 
     override suspend fun fetch() = useCase.call(Unit).fold(
-        onSuccess = { state.value = UiModel(data = it, error = null) },
+        onSuccess = {
+            state.value = UiModel(data = it, error = null)
+        },
         onFailure = { state.value = UiModel(data = null, error = it.message) },
     )
 }

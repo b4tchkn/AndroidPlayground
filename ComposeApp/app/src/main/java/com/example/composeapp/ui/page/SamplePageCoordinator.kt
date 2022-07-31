@@ -5,6 +5,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.composeapp.state.Sample2State
 import com.example.composeapp.state.SampleState
@@ -23,10 +24,10 @@ fun SamplePageCoordinator(
             }
         },
     ) {
-        Coordinator(states = listOf(sampleState.state, sampleState2.state)) {
+        Coordinator(states = listOf(sampleState, sampleState2)) {
             SamplePage(
-                sample = sampleState.state.value!!.data!!,
-                sample2 = sampleState2.state.value!!.data!!,
+                sample = sampleState.state.observeAsState().value!!.data!!,
+                sample2 = sampleState2.state.observeAsState().value!!.data!!,
             )
         }
     }
